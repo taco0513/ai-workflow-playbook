@@ -43,6 +43,7 @@ Claude Code CLI + Cursor IDE를 활용한 Vibe Coding으로 아이디어를 현�
 
 ### 🏃‍♂️ 빠른 시작 (1-2일)
 **[00_Getting_Started](00_Getting_Started/README.md)** - 개발 환경 구축과 기본 개념
+- **[🚀 설치 가이드](00_Getting_Started/00_Installation_Guide.md)** - 30분만에 시작하는 완벽한 가이드
 - 개념 이해와 마인드셋
 - 도구 설치와 환경 설정
 - 첫 번째 AI 개발 경험
@@ -311,10 +312,11 @@ Claude Code CLI + Cursor IDE를 활용한 Vibe Coding으로 아이디어를 현�
 
 ### 지금 바로 시작하세요!
 
-1. **[Getting Started](00_Getting_Started/README.md)**로 첫 걸음
-2. **[Setup Guide](01_Setup/README.md)**로 환경 구축
-3. **[17일 여정](05_17Day_Journey/README.md)**으로 MVP 완성
-4. **[Quick Wins](11_Quick_Wins/README.md)**로 즉시 성과
+1. **[🚀 설치 가이드](00_Getting_Started/00_Installation_Guide.md)** - 30분만에 바로 시작!
+2. **[Getting Started](00_Getting_Started/README.md)**로 첫 걸음
+3. **[Setup Guide](01_Setup/README.md)**로 환경 구축  
+4. **[17일 여정](05_17Day_Journey/README.md)**으로 MVP 완성
+5. **[Quick Wins](11_Quick_Wins/README.md)**로 즉시 성과
 
 ### 성공을 위한 마음가짐
 

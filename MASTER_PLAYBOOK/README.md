@@ -39,6 +39,7 @@ Claude Code CLI + Cursor IDE를 활용한 Vibe Coding으로 아이디어를 현�
 
 ### 🏃‍♂️ 빠른 시작 (1-2일)
 - [00_Getting_Started](00_Getting_Started/README.md) - 개발 환경 구축과 기본 개념
+  - [🚀 설치 가이드](00_Getting_Started/00_Installation_Guide.md) - 30분만에 시작하는 완벽한 가이드
 - [01_Setup](01_Setup/README.md) - 완벽한 개발 환경 구축
 
 ### 🤖 AI 전문가 팀 (3-5일)
@@ -162,10 +163,11 @@ Claude Code CLI + Cursor IDE를 활용한 Vibe Coding으로 아이디어를 현�
 ## 🚀 즉시 시작하기
 
 ### 첫 걸음
-1. **[Getting Started](00_Getting_Started/README.md)**로 기본 개념 이해
-2. **[Setup Guide](01_Setup/README.md)**로 환경 구축
-3. **[Project Kickstart](14_Project_Kickstart/README.md)**로 30분 프로토타입
-4. **[Smart Assistant](12_Smart_Assistant/README.md)**로 AI 파워 활용
+1. **[🚀 설치 가이드](00_Getting_Started/00_Installation_Guide.md)** - 30분만에 바로 시작!
+2. **[Getting Started](00_Getting_Started/README.md)**로 기본 개념 이해
+3. **[Setup Guide](01_Setup/README.md)**로 환경 구축
+4. **[Project Kickstart](14_Project_Kickstart/README.md)**로 30분 프로토타입
+5. **[Smart Assistant](12_Smart_Assistant/README.md)**로 AI 파워 활용
 
 ### 성공을 위한 핵심 마음가짐
 
