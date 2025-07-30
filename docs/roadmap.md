@@ -34,7 +34,7 @@
 
 프로젝트에 AI Workflow Playbook 적용 준비 완료:
 1. MASTER_PLAYBOOK 복사
-2. Claude 학습 실행  
+2. Claude 학습 실행
 3. 실제 프로젝트 시작
 
 ---

@@ -67,7 +67,7 @@
 # 최강 개발 모드
 /build --wave-mode --all-mcp --persona-architect --ultrathink
 
-# 성능 최적화 모드  
+# 성능 최적화 모드
 /improve --wave-strategy progressive --loop --focus performance
 
 # 보안 강화 모드

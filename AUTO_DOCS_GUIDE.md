@@ -6,13 +6,13 @@
 
 **기존 문제점**:
 - ❌ 새 파일을 만들거나 수정할 때마다 일일이 문서 확인
-- ❌ 누락된 문서들을 수동으로 찾아야 함  
+- ❌ 누락된 문서들을 수동으로 찾아야 함
 - ❌ SuperClaude /checkpoint와 문서 동기화 번거로움
 - ❌ 프로젝트 변경 사항 추적의 어려움
 
 **Auto-Docs 해결책**:
 - ✅ **실시간 파일 변경 감지**: 모든 파일 변경사항을 자동 추적
-- ✅ **자동 문서 생성**: README, CHANGELOG, PROGRESS 자동 생성/업데이트  
+- ✅ **자동 문서 생성**: README, CHANGELOG, PROGRESS 자동 생성/업데이트
 - ✅ **SuperClaude 완벽 연동**: /checkpoint 명령어와 실시간 동기화
 - ✅ **누락 문서 자동 탐지**: 필요한 문서를 자동으로 발견하고 알림
 - 🔍 **NEW! 문서 품질 리뷰**: 맞춤법, 문법, 링크, 일관성 자동 검사
@@ -51,7 +51,7 @@
 
 ### 4. 누락 문서 탐지
 - **필수 문서 확인**: README, package.json 등 기본 문서 검사
-- **폴더별 문서**: 각 디렉토리의 README 존재 여부 확인  
+- **폴더별 문서**: 각 디렉토리의 README 존재 여부 확인
 - **자동 생성 제안**: 누락된 문서의 자동 생성 방법 제공
 
 ## 📋 사용법
@@ -156,11 +156,11 @@ touch src/components/UserProfile.jsx
 ```bash
 # 여러 파일을 한 번에 수정
 # Auto-Docs가 변경사항을 1초 간격으로 그룹핑하여:
-# 
+#
 # CHANGELOG.md 업데이트:
 # ## 2025-07-30 15:30:00
 # - ✏️ src/utils/auth.js (modified)
-# - ✏️ src/components/Login.jsx (modified)  
+# - ✏️ src/components/Login.jsx (modified)
 # - ➕ src/hooks/useAuth.js (added)
 # - 🗑️ src/legacy/oldAuth.js (deleted)
 
@@ -223,7 +223,7 @@ auto-docs generate --missing
 # 1. 권한 확인
 ls -la .auto-docs.yml
 
-# 2. 프로세스 확인  
+# 2. 프로세스 확인
 ps aux | grep auto-docs
 
 # 3. 재시작
@@ -263,7 +263,7 @@ auto-docs init
 // templates.js 확장
 getMyCustomTemplate() {
   return `# {{projectName}} Custom Doc
-  
+
 {{description}}
 
 ## Custom Section

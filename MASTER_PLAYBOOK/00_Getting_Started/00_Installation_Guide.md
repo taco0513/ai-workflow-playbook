@@ -112,7 +112,7 @@ cp MASTER_PLAYBOOK/04_BMAD_Method/01_Business_Definition.md docs/playbook/
 **완전 초보자용 - 복사해서 바로 사용:**
 
 ```
-안녕 Claude! 
+안녕 Claude!
 
 1단계: AI Workflow Playbook 학습
 @MASTER_PLAYBOOK 폴더의 다음 문서들을 읽어주세요:

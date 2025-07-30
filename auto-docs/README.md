@@ -95,7 +95,7 @@ auto-docs config
 ```yaml
 watch:
   paths: ['**/*']
-  ignore: 
+  ignore:
     - 'node_modules/**'
     - '.git/**'
     - '*.log'
@@ -128,7 +128,7 @@ notifications:
 ```bash
 # SuperClaude에서 체크포인트 생성 시 자동으로:
 # 1. checkpoints/ 폴더 모니터링
-# 2. PROGRESS.md 자동 업데이트  
+# 2. PROGRESS.md 자동 업데이트
 # 3. CHANGELOG.md에 변경 사항 추가
 # 4. README.md 최근 변경 사항 업데이트
 ```
@@ -155,7 +155,7 @@ notifications:
 - Git 상태 기반 업데이트
 - 체크포인트 연동
 
-### 3. PROGRESS.md  
+### 3. PROGRESS.md
 - 프로젝트 진행 상황
 - 스프린트 목표 및 달성도
 - 완료/진행/예정 작업 관리
@@ -228,7 +228,7 @@ auto-docs/
    ```bash
    # 권한 확인
    ls -la .auto-docs.yml
-   
+
    # 설정 파일 재생성
    auto-docs init
    ```
@@ -237,7 +237,7 @@ auto-docs/
    ```bash
    # 상태 확인
    auto-docs status
-   
+
    # 수동 생성 시도
    auto-docs generate --readme
    ```
@@ -246,7 +246,7 @@ auto-docs/
    ```bash
    # Git 설정 확인
    git config --list
-   
+
    # 설정에서 autoCommit 비활성화
    ```
 

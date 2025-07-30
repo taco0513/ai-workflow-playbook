@@ -157,11 +157,11 @@ git worktree add ../my-app-security analysis/security
 developer_1:
   worktree: "feature/payment"
   claude_session: "결제 시스템 구현"
-  
+
 developer_2:
   worktree: "feature/notifications"
   claude_session: "알림 시스템 구현"
-  
+
 developer_3:
   worktree: "bugfix/performance"
   claude_session: "성능 최적화"
@@ -217,11 +217,11 @@ git worktree prune
 main_worktree:
   branch: main
   purpose: "안정적인 코드베이스"
-  
+
 feature_worktrees:
   branches: feature/*
   purpose: "새 기능 개발"
-  
+
 hotfix_worktrees:
   branches: hotfix/*
   purpose: "긴급 수정"
@@ -250,7 +250,7 @@ git pull origin main
 # Backend API 개발
 git worktree add ../app-backend feature/api-v2
 
-# Frontend UI 개발  
+# Frontend UI 개발
 git worktree add ../app-frontend feature/new-ui
 
 # 모바일 앱 개발

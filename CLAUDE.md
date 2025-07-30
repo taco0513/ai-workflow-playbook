@@ -64,7 +64,7 @@ This is the AI Workflow Playbook repository containing comprehensive guides for 
 ```bash
 # SuperClaude commands
 /analyze --think                    # Standard analysis (~4K tokens)
-/analyze --think-hard              # Deep analysis (~10K tokens)  
+/analyze --think-hard              # Deep analysis (~10K tokens)
 /analyze --ultrathink              # Architecture analysis (~32K tokens)
 /analyze --focus [performance|security|quality|mobile]
 

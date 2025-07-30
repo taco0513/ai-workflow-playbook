@@ -314,22 +314,22 @@ Claude Code CLI + Cursor IDE를 활용한 Vibe Coding으로 아이디어를 현�
 
 1. **[🚀 설치 가이드](00_Getting_Started/00_Installation_Guide.md)** - 30분만에 바로 시작!
 2. **[Getting Started](00_Getting_Started/README.md)**로 첫 걸음
-3. **[Setup Guide](01_Setup/README.md)**로 환경 구축  
+3. **[Setup Guide](01_Setup/README.md)**로 환경 구축
 4. **[17일 여정](05_17Day_Journey/README.md)**으로 MVP 완성
 5. **[Quick Wins](11_Quick_Wins/README.md)**로 즉시 성과
 
 ### 성공을 위한 마음가짐
 
 > 💡 **"AI는 도구가 아니라 파트너다"**
-> 
+>
 > AI와 함께 개발하면 혼자서는 불가능한 일을 해낼 수 있습니다.
 
 > 🚀 **"완벽함보다 실행이 우선이다"**
-> 
+>
 > 80% 완성도로 출시하고 사용자 피드백으로 개선하세요.
 
 > 🎯 **"작은 성공이 큰 성취를 만든다"**
-> 
+>
 > 매일 작은 진전을 만들어가면 놀라운 결과를 얻습니다.
 
 ---

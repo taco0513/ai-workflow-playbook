@@ -22,7 +22,7 @@
 1. **[환경 설정](../01_Setup/README.md)** - Cursor와 Claude 설치 (Day 0)
 2. **[AI 전문가들](../02_AI_Experts/README.md)** - 36명의 도우미 소개
 3. **[바이브 코딩](../03_Vibe_Coding/README.md)** - 대화로 코딩하기
-4. **[개발 방법론](../04_Methodologies/README.md)** - 3가지 접근법
+4. **[개발 방법론](../04_BMAD_Method/README.md)** - 3가지 접근법
 5. **[17일 여정](../05_17Day_Journey/README.md)** - 단계별 가이드
 
 ## 🎮 빠른 시작
@@ -33,8 +33,8 @@
 ### 📚 차근차근 배우고 싶다면?
 👉 **[소개 문서](01_Introduction.md)**부터 순서대로 읽어보세요.
 
-### ⚡ 5분 체험하고 싶다면?
-👉 **[5분 만에 첫 버튼 만들기](../11_Quick_Wins/01_First_Hour.md)**
+### ⚡ 30분 체험하고 싶다면?
+👉 **[30분 프로토타입 만들기](../11_Quick_Wins/01_30min_Prototype.md)**
 
 ## ❓ 자주 묻는 질문
 
