@@ -146,6 +146,7 @@ _Documents/
 - **Wave Mode**: Automatically activates for complex operations (can force with `--wave-mode force`)
 - **Token Efficiency**: Use `--uc` flag for compressed output when needed
 - **Personas**: Auto-activate based on task context, or manually specify with `--persona-[name]`
+- **🛡️ Roadmap Guard**: Automatically analyzes requests to prevent project scope drift and maintain focus
 
 ## Tips for Development
 

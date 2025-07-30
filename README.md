@@ -7,6 +7,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Korean](https://img.shields.io/badge/Language-Korean-red.svg)](README.md)
 [![English](https://img.shields.io/badge/Language-English-blue.svg)](README_EN.md)
+[![Credits](https://img.shields.io/badge/Credits-🙏-green.svg)](CREDITS.md)
 
 ---
 
@@ -45,6 +46,8 @@
 ## ⚡ **5분 빠른 체험**
 
 *지금 당장 AI 개발의 위력을 체험해보세요*
+
+👉 **더 자세한 빠른 시작**: [QUICK_START.md](QUICK_START.md)
 
 ```bash
 # 1. 이 저장소를 복사하세요

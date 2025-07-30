@@ -1,102 +1,86 @@
-# 변경 로그
+# 📝 Changelog
 
-이 파일은 SuperClaude 체크포인트와 Auto-Docs에 의해 자동으로 관리됩니다.
+All notable changes to this project will be documented in this file.
 
-## 2025. 7. 30. 오후 4:46:08 (checkpoint-2025-01-28_15-30-analysis.md)
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-- **상태**: 완료 ✅
-- - ✅ MASTER_PLAYBOOK 전체 구조 파악
-- - ✅ xx_TITLE 폴더 번호 체계 검증
-- - ✅ 학습 순서와 의존성 관계 확인
-- - ✅ BMAD Method의 Business Definition 분석
-- - ✅ 프로젝트 기획 템플릿 확인
-- - ✅ 요구사항 정의 프레임워크 검토
-- - ✅ 3단계 설치 프로세스 완성
-- - ✅ Claude 학습 프롬프트 작성
-- - ✅ 즉시 시작 가능한 올인원 프롬프트 제공
-- - ✅ 상호 보완적 관계 확인
-- - ✅ 충돌 없는 파일 구조
-- - ✅ 통합 워크플로우 가능
-- **상태**: 분석 완료 ✅
+## [2.1.0] - 2025-07-30
 
-## 2025. 7. 30. 오후 4:46:08 (checkpoint-2025-01-28_15-45-documentation.md)
+### 🎉 Added
+- **폴더 구조 최적화**: 체계적인 리소스 정리 및 접근성 향상
+- **21_Resources 섹션**: 빠른 참조 가이드와 템플릿 모음 추가
+- **버전 관리 시스템**: VERSION.md와 체계적인 릴리즈 프로세스 도입
+- **로드맵 가드 시스템**: 프로젝트 방향성 유지 및 이탈 방지 시스템
 
-- **상태**: 완료 ✅
-- - ✅ `00_Installation_Guide.md` 작성 완료
-- - ✅ 30분만에 시작할 수 있는 완벽한 가이드 제공
-- - ✅ 3단계 프로세스 (복사 → 학습 → 시작)
-- - ✅ 올인원 프롬프트 포함
-- - ✅ `00_Getting_Started/README.md` - 설치 가이드를 최우선 링크로 추가
-- - ✅ `MASTER_PLAYBOOK/README.md` - 전체 목차 및 "첫 걸음" 섹션 업데이트
-- - ✅ `INDEX.md` - 빠른 시작 및 시작하기 섹션에 추가
-- - ✅ `CLAUDE.md` - 새 프로젝트 초기화 방법으로 권장
-- - ✅ 파일 변경 추적 시스템 완전 이해
-- - ✅ /checkpoint와 호환성 재확인
-- - ✅ 실시간 동기화 기능 확인
-- **상태**: 문서 업데이트 완료 ✅
+### 🔧 Changed
+- **17_Design_System**: IA·UX·UI 시스템과 통합하여 완전한 디자인 가이드로 발전
+- **13_Advanced_Claude_Features**: 파일 순서 재정렬 및 Git Worktrees 우선순위 상향
+- **docs/ 구조**: ai-reviews와 review-reports를 reviews/로 통합
 
-## 2025. 7. 30. 오후 4:55:59 (checkpoint-2025-01-28_15-30-analysis.md)
+### 🗑️ Removed
+- **18_IA_UX_UI_System**: 17_Design_System으로 통합됨
+- **99_Resources**: 21_Resources로 이동하여 접근성 향상
+- **중복 파일들**: Context Management 파일 순서 정리
 
-- **상태**: 완료 ✅
-- - ✅ MASTER_PLAYBOOK 전체 구조 파악
-- - ✅ xx_TITLE 폴더 번호 체계 검증
-- - ✅ 학습 순서와 의존성 관계 확인
-- - ✅ BMAD Method의 Business Definition 분석
-- - ✅ 프로젝트 기획 템플릿 확인
-- - ✅ 요구사항 정의 프레임워크 검토
-- - ✅ 3단계 설치 프로세스 완성
-- - ✅ Claude 학습 프롬프트 작성
-- - ✅ 즉시 시작 가능한 올인원 프롬프트 제공
-- - ✅ 상호 보완적 관계 확인
-- - ✅ 충돌 없는 파일 구조
-- - ✅ 통합 워크플로우 가능
-- **상태**: 분석 완료 ✅
+### 🐛 Fixed
+- 루트 레벨 README 파일들의 역할 명확화
+- 상호 참조 링크 정확성 개선
+- 네비게이션 일관성 향상
 
-## 2025. 7. 30. 오후 4:55:59 (checkpoint-2025-01-28_15-45-documentation.md)
+---
 
-- **상태**: 완료 ✅
-- - ✅ `00_Installation_Guide.md` 작성 완료
-- - ✅ 30분만에 시작할 수 있는 완벽한 가이드 제공
-- - ✅ 3단계 프로세스 (복사 → 학습 → 시작)
-- - ✅ 올인원 프롬프트 포함
-- - ✅ `00_Getting_Started/README.md` - 설치 가이드를 최우선 링크로 추가
-- - ✅ `MASTER_PLAYBOOK/README.md` - 전체 목차 및 "첫 걸음" 섹션 업데이트
-- - ✅ `INDEX.md` - 빠른 시작 및 시작하기 섹션에 추가
-- - ✅ `CLAUDE.md` - 새 프로젝트 초기화 방법으로 권장
-- - ✅ 파일 변경 추적 시스템 완전 이해
-- - ✅ /checkpoint와 호환성 재확인
-- - ✅ 실시간 동기화 기능 확인
-- **상태**: 문서 업데이트 완료 ✅
+## [2.0.0] - 2025-07-29
 
-## 2025. 7. 30. 오후 5:00:29 (checkpoint-2025-01-28_15-30-analysis.md)
+### 🎉 Added
+- **MVP 체크포인트 시스템**: 30분→3시간→7일 단계별 진화 체계
+- **MVP 레시피북**: 20+ 검증된 개발 레시피 제공
+- **완전한 IA·UX·UI 시스템**: 정보구조부터 컴포넌트까지 체계화
+- **로드맵 가드 시스템**: AI 기반 요청 분류 및 프로젝트 이탈 방지
 
-- **상태**: 완료 ✅
-- - ✅ MASTER_PLAYBOOK 전체 구조 파악
-- - ✅ xx_TITLE 폴더 번호 체계 검증
-- - ✅ 학습 순서와 의존성 관계 확인
-- - ✅ BMAD Method의 Business Definition 분석
-- - ✅ 프로젝트 기획 템플릿 확인
-- - ✅ 요구사항 정의 프레임워크 검토
-- - ✅ 3단계 설치 프로세스 완성
-- - ✅ Claude 학습 프롬프트 작성
-- - ✅ 즉시 시작 가능한 올인원 프롬프트 제공
-- - ✅ 상호 보완적 관계 확인
-- - ✅ 충돌 없는 파일 구조
-- - ✅ 통합 워크플로우 가능
-- **상태**: 분석 완료 ✅
+### 🔧 Changed
+- **스마트 Git Worktrees**: AI 자동 작업 분석 시스템으로 업그레이드
+- **문서 구조**: 전체적인 학습 경로 최적화
 
-## 2025. 7. 30. 오후 5:00:29 (checkpoint-2025-01-28_15-45-documentation.md)
+### 🐛 Fixed
+- 크로스 참조 링크 정확성 개선
+- 중복 내용 정리 및 통합
 
-- **상태**: 완료 ✅
-- - ✅ `00_Installation_Guide.md` 작성 완료
-- - ✅ 30분만에 시작할 수 있는 완벽한 가이드 제공
-- - ✅ 3단계 프로세스 (복사 → 학습 → 시작)
-- - ✅ 올인원 프롬프트 포함
-- - ✅ `00_Getting_Started/README.md` - 설치 가이드를 최우선 링크로 추가
-- - ✅ `MASTER_PLAYBOOK/README.md` - 전체 목차 및 "첫 걸음" 섹션 업데이트
-- - ✅ `INDEX.md` - 빠른 시작 및 시작하기 섹션에 추가
-- - ✅ `CLAUDE.md` - 새 프로젝트 초기화 방법으로 권장
-- - ✅ 파일 변경 추적 시스템 완전 이해
-- - ✅ /checkpoint와 호환성 재확인
-- - ✅ 실시간 동기화 기능 확인
-- **상태**: 문서 업데이트 완료 ✅
+---
+
+## [1.0.0] - 2025-07-15
+
+### 🎉 Added
+- **MASTER_PLAYBOOK 완성**: 21개 섹션으로 구성된 완전한 AI 개발 가이드
+- **BMAD Method**: Business-Model-API-Design 체계적 개발 방법론
+- **SuperClaude Framework**: Claude AI 능력 극대화 프레임워크
+- **17일 여정**: 아이디어에서 런칭까지 실전 로드맵
+- **AI 전문가 시스템**: 36명의 도메인별 전문 AI 활용법
+
+### 🎯 Initial Release Features
+- 완전 초보자도 따라할 수 있는 단계별 가이드
+- 실제 코드 예제와 템플릿 제공
+- 자동화 도구 및 스크립트 통합
+- 다국어 지원 (한국어 우선)
+
+---
+
+## 🏷️ Version Tags
+
+- `v2.1.0` - 폴더 구조 최적화 (2025-07-30)
+- `v2.0.0` - MVP 시스템 완성 (2025-07-29)
+- `v1.0.0` - 마스터 플레이북 초기 완성 (2025-07-15)
+
+## 🔄 Automated Updates
+
+이 changelog는 다음 도구들에 의해 자동으로 관리됩니다:
+- SuperClaude 체크포인트 시스템
+- Auto-Docs 시스템  
+- 로드맵 가드 시스템
+
+## 📞 Contributing
+
+버전 관리에 기여하고 싶다면:
+1. [GitHub Issues](https://github.com/your-username/AI_Workflow_Playbook/issues)에 변경사항 제안
+2. Pull Request로 직접 기여
+3. [VERSION.md](VERSION.md)에서 릴리즈 계획 확인
