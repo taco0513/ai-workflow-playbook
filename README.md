@@ -47,7 +47,8 @@
 
 *지금 당장 AI 개발의 위력을 체험해보세요*
 
-👉 **더 자세한 빠른 시작**: [QUICK_START.md](QUICK_START.md)
+👉 **🚀 신규 사용자 완전 가이드**: [NEW_USER_START.md](NEW_USER_START.md) ⭐ **추천**
+👉 **빠른 체험**: [QUICK_START.md](QUICK_START.md)
 
 ```bash
 # 1. 이 저장소를 복사하세요
