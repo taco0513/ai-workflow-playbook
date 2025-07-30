@@ -72,7 +72,8 @@
 
 8. @/MASTER_PLAYBOOK/13_Advanced_Claude_Features/README.md
    - 고급 프롬프트 엔지니어링과 컨텍스트 관리
-   - 대규모 코드베이스에서의 AI 활용법
+   - 🔄 스마트 Git Worktrees: AI 자동 작업 분석 시스템
+   - 병렬 개발 워크플로우와 지능형 충돌 방지
 ```
 
 ---

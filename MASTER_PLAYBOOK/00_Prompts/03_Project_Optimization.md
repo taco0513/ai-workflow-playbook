@@ -29,8 +29,8 @@
 
 2. @/MASTER_PLAYBOOK/13_Advanced_Claude_Features/README.md
    - 고급 프롬프트 엔지니어링과 컨텍스트 관리
-   - 복잡한 코드베이스에서의 AI 활용 전략
-   - 코드 리뷰와 품질 관리 자동화
+   - 🔄 스마트 Git Worktrees: AI 자동 작업 분석으로 병렬 개발 최적화
+   - 복잡한 코드베이스에서의 AI 활용 전략과 성과 분석
 
 3. @/MASTER_PLAYBOOK/07_Advanced_Patterns/README.md
    - 엔터프라이즈급 아키텍처 패턴

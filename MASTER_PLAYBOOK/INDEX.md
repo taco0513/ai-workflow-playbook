@@ -149,8 +149,11 @@ Claude Code CLI + Cursor IDE를 활용한 Vibe Coding으로 아이디어를 현�
 
 **[13_Advanced_Claude_Features](13_Advanced_Claude_Features/README.md)** - Claude Code 고급 기능 마스터
 - Sub-Agents: 전문화된 AI 에이전트
-- Extended Thinking: 깊은 사고 모드
-- Parallel Sessions: Git Worktrees 병렬 개발
+- Extended Thinking: 깊은 사고 모드  
+- **🔄 스마트 Git Worktrees**: AI 자동 작업 분석 + 병렬 개발 시스템
+  - AI 기반 자동 워크플로우 결정 매트릭스
+  - 지능형 충돌 방지 및 리소스 관리
+  - 자동화 스크립트와 성과 분석 시스템
 - Unix Integration: CLI 도구 활용
 - @ 참조 시스템: 즉시 컨텍스트 포함
 - Image Analysis: 시각적 자료 분석

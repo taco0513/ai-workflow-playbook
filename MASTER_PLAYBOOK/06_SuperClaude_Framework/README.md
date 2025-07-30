@@ -178,6 +178,11 @@ team_config:
 2. [워크플로우 설계](05_Automation_Workflows.md)
 3. [성능 최적화](06_Advanced_Optimization.md)
 
+### 🔄 고급 기능 활용
+1. **[스마트 Git Worktrees](../13_Advanced_Claude_Features/01_Git_Worktrees_Parallel_Sessions.md)** ⭐
+   - AI 자동 작업 분석 시스템으로 병렬 개발 워크플로우 최적화
+   - 지능형 충돌 방지 및 자동화 스크립트로 개발 속도 300% 향상
+
 ## 🚀 다음 단계
 
 SuperClaude Framework를 마스터하면:

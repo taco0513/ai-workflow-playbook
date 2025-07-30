@@ -66,7 +66,7 @@ Claude Code CLI + Cursor IDE를 활용한 Vibe Coding으로 아이디어를 현�
 
 ### 🚀 AI 파워 업그레이드 (혁신적)
 - [12_Smart_Assistant](12_Smart_Assistant/README.md) - 상황별 자동 추천 시스템
-- [13_Advanced_Claude_Features](13_Advanced_Claude_Features/README.md) - Claude Code 고급 기능 마스터
+- [13_Advanced_Claude_Features](13_Advanced_Claude_Features/README.md) - Claude Code 고급 기능 마스터 (🔄 스마트 Git Worktrees 포함)
 - [14_Project_Kickstart](14_Project_Kickstart/README.md) - 프로토타입부터 프로덕션까지
 
 ### 📚 문서화 & 협업 (필수)
