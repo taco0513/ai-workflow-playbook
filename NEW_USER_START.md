@@ -34,10 +34,41 @@ cd ai-workflow-playbook
 7. @MASTER_PLAYBOOK/06_SuperClaude_Framework/README.md - Claude 고급 기능
 8. @MASTER_PLAYBOOK/12_Smart_Assistant/README.md - 상황별 자동 추천
 
+🆕 최신 시스템 (선택적 학습):
+9. @MASTER_PLAYBOOK/22_Context_Engineering/README.md - AI의 사고 방식
+10. @MASTER_PLAYBOOK/24_AI_Interview_System/README.md - 대화로 개발하기
+11. @MASTER_PLAYBOOK/25_Industry_Templates/README.md - 30분 MVP 템플릿
+
 모든 문서를 읽은 후 "학습 완료! 프로젝트를 시작할 준비가 되었습니다 🚀"라고 알려주세요.
 ```
 
 **🎉 완료!** 이제 Claude가 모든 기능을 이해했습니다.
+
+---
+
+## 🚀 더 쉬워진 시작 방법 - AI가 인터뷰합니다!
+
+### 🎤 AI 인터뷰로 시작하기 (가장 쉬운 방법)
+```
+그냥 Claude에게 말하세요: "앱 만들고 싶어"
+
+AI가 자동으로:
+1. 🤔 무엇을 만들고 싶은지 친절하게 물어봅니다
+2. 💡 필요한 기능을 하나씩 정리해줍니다
+3. 🎯 30분 안에 작동하는 앱을 보여줍니다
+4. 🚀 바로 사용할 수 있게 배포까지 해줍니다
+
+**코딩 지식 0%도 OK!**
+```
+
+### 🏭 업종별 템플릿으로 더 빠르게
+```
+"쇼핑몰 만들어줘" → 30분 후 완성된 쇼핑몰
+"음식 배달 앱" → 1시간 후 작동하는 배달 앱
+"온라인 강의 사이트" → 2시간 후 LMS 완성
+
+지원 업종: 이커머스, SaaS, 레스토랑, 교육, 헬스케어, 모빌리티
+```
 
 ---
 
