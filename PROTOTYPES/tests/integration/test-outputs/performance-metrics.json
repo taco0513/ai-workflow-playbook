@@ -1,0 +1,25 @@
+{
+  "totalWorkflowTime": 5,
+  "averageStepTime": 0,
+  "memoryUsage": {
+    "rss": 40124416,
+    "heapTotal": 5341184,
+    "heapUsed": 4389752,
+    "external": 1564210,
+    "arrayBuffers": 10515
+  },
+  "scenarioTimes": [
+    {
+      "scenario": "Ecommerce Scenario",
+      "duration": 0
+    },
+    {
+      "scenario": "SaaS Scenario",
+      "duration": 0
+    },
+    {
+      "scenario": "Restaurant Scenario",
+      "duration": 0
+    }
+  ]
+}

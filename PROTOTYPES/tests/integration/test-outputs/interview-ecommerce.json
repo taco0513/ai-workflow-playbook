@@ -1,0 +1,19 @@
+{
+  "projectType": "ecommerce",
+  "userProfile": "beginner",
+  "requirements": {
+    "productType": "수제 악세서리",
+    "mainFeatures": [
+      "상품 카탈로그",
+      "장바구니",
+      "결제 시스템"
+    ],
+    "currentSolution": "Instagram DM",
+    "painPoints": [
+      "수동 주문 관리",
+      "입금 확인",
+      "재고 추적"
+    ],
+    "successMetrics": "월 100개 판매"
+  }
+}

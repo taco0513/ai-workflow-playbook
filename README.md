@@ -47,8 +47,8 @@
 
 *지금 당장 AI 개발의 위력을 체험해보세요*
 
-👉 **🚀 신규 사용자 완전 가이드**: [NEW_USER_START.md](NEW_USER_START.md) ⭐ **추천**
-👉 **빠른 체험**: [QUICK_START.md](QUICK_START.md)
+👉 **🚀 신규 사용자 완전 가이드**: [NEW_USER_START.md](documentation/user-guides/NEW_USER_START.md) ⭐ **추천**
+👉 **빠른 체험**: [QUICK_START.md](documentation/user-guides/QUICK_START.md)
 
 ```bash
 # 1. 이 저장소를 복사하세요
@@ -180,7 +180,7 @@ cd AI_Workflow_Playbook
 
 ```bash
 # 설치 (30초)
-./install-auto-docs.sh
+./setup/installation/install-auto-docs.sh
 
 # 실행 (문서 품질 자동 관리)
 auto-docs watch
@@ -194,8 +194,8 @@ auto-docs review --ai
 ## 🤝 **커뮤니티 & 지원**
 
 ### 💬 **도움이 필요하세요?**
-- [❓ 자주 묻는 질문](FAQ.md)
-- [🔧 문제 해결](TROUBLESHOOTING.md)
+- [❓ 자주 묻는 질문](documentation/user-guides/FAQ.md)
+- [🔧 문제 해결](documentation/user-guides/TROUBLESHOOTING.md)
 - [💡 아이디어 제안](https://github.com/your-username/AI_Workflow_Playbook/issues)
 
 ### 🌟 **기여하기**

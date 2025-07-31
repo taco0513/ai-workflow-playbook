@@ -1,0 +1,87 @@
+{
+  "name": "ai-workflow-playbook",
+  "version": "3.1.1",
+  "description": "AI Workflow Playbook - 30분 MVP 생성 플랫폼",
+  "main": "server.js",
+  "private": true,
+  "engines": {
+    "node": ">=18.0.0",
+    "bun": ">=1.0.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "NODE_ENV=development node server.js",
+    "prod": "NODE_ENV=production node server.js",
+    "build": "echo 'No build step required for static files'",
+    "test": "node tests/integration/integration-test.js",
+    "test:security": "node infrastructure/security/security-test.js",
+    "lint": "echo 'Linting with built-in checks'",
+    "health": "curl -f http://localhost:3000/health || exit 1",
+    "docker:build": "docker build -t ai-workflow-playbook .",
+    "docker:run": "docker run -p 3000:3000 ai-workflow-playbook",
+    "docker:compose": "docker-compose -f infrastructure/docker/docker-compose.yml up -d",
+    "docker:compose:dev": "docker-compose -f infrastructure/docker/docker-compose.yml -f infrastructure/docker/docker-compose.dev.yml up -d",
+    "docker:compose:monitoring": "docker-compose -f infrastructure/docker/docker-compose.yml --profile monitoring up -d",
+    "docker:logs": "docker-compose -f infrastructure/docker/docker-compose.yml logs -f",
+    "docker:stop": "docker-compose -f infrastructure/docker/docker-compose.yml down",
+    "ssl:generate": "openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ssl/private.key -out ssl/certificate.crt",
+    "backup": "tar -czf backup-$(date +%Y%m%d-%H%M%S).tar.gz --exclude=node_modules --exclude=.git .",
+    "install:bun": "curl -fsSL https://bun.sh/install | bash",
+    "setup:production": "npm run ssl:generate && mkdir -p logs cache projects",
+    "monitor": "docker-compose --profile monitoring up -d prometheus grafana"
+  },
+  "dependencies": {
+    "helmet": "^7.1.0",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "keywords": [
+    "ai",
+    "workflow",
+    "mvp",
+    "prototype",
+    "rapid-development",
+    "30-minute-mvp",
+    "no-code",
+    "visual-builder"
+  ],
+  "author": {
+    "name": "AI Workflow Playbook Team",
+    "email": "team@aiworkflowplaybook.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ai-workflow-playbook/ai-workflow-playbook.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ai-workflow-playbook/ai-workflow-playbook/issues"
+  },
+  "homepage": "https://github.com/ai-workflow-playbook/ai-workflow-playbook#readme",
+  "files": [
+    "*.js",
+    "*.html",
+    "*.css",
+    "*.md",
+    "prototypes/",
+    "utils/",
+    "docs/",
+    "LICENSE"
+  ],
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/ai-workflow-playbook"
+  },
+  "os": [
+    "linux",
+    "darwin",
+    "win32"
+  ],
+  "cpu": [
+    "x64",
+    "arm64"
+  ]
+}

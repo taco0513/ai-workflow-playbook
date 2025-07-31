@@ -1,0 +1,1799 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Builder Pro - 프로급 비주얼 에디터</title>
+    <link rel="stylesheet" href="../../assets/design-system.css">
+    <style>
+        body {
+            background: var(--bg-secondary);
+            overflow: hidden;
+        }
+
+        .builder-container {
+            display: flex;
+            height: 100vh;
+            position: relative;
+        }
+
+        /* 헤더 */
+        .builder-header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border-primary);
+            padding: var(--space-4) var(--space-6);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: var(--z-50);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+        }
+
+        .logo {
+            font-size: var(--text-2xl);
+            font-weight: var(--font-bold);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .project-name {
+            color: var(--text-secondary);
+            font-size: var(--text-sm);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+        }
+
+        .view-toggle {
+            display: flex;
+            background: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            padding: var(--space-1);
+        }
+
+        .view-toggle button {
+            background: transparent;
+            border: none;
+            padding: var(--space-2) var(--space-3);
+            border-radius: var(--radius-md);
+            font-size: var(--text-sm);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .view-toggle button.active {
+            background: var(--bg-primary);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* 사이드바 */
+        .sidebar {
+            width: 280px;
+            background: var(--bg-primary);
+            border-right: 1px solid var(--border-primary);
+            margin-top: 80px;
+            height: calc(100vh - 80px);
+            overflow-y: auto;
+        }
+
+        .sidebar-section {
+            border-bottom: 1px solid var(--border-primary);
+        }
+
+        .sidebar-header {
+            padding: var(--space-4) var(--space-6);
+            background: var(--bg-secondary);
+            font-weight: var(--font-semibold);
+            font-size: var(--text-sm);
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            justify-content: between;
+            cursor: pointer;
+        }
+
+        .sidebar-content {
+            padding: var(--space-4);
+        }
+
+        .component-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-3);
+        }
+
+        .component-item {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-primary);
+            border-radius: var(--radius-lg);
+            padding: var(--space-4);
+            cursor: move;
+            transition: all var(--transition-fast);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-2);
+            text-align: center;
+        }
+
+        .component-item:hover {
+            background: var(--bg-tertiary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .component-icon {
+            font-size: 24px;
+            margin-bottom: var(--space-1);
+        }
+
+        .component-name {
+            font-size: var(--text-xs);
+            font-weight: var(--font-medium);
+            color: var(--text-secondary);
+        }
+
+        /* 메인 캔버스 */
+        .canvas-container {
+            flex: 1;
+            margin-top: 80px;
+            height: calc(100vh - 80px);
+            position: relative;
+            overflow: auto;
+        }
+
+        .canvas-toolbar {
+            position: absolute;
+            top: var(--space-4);
+            left: var(--space-4);
+            right: var(--space-4);
+            background: var(--bg-primary);
+            border: 1px solid var(--border-primary);
+            border-radius: var(--radius-xl);
+            padding: var(--space-3) var(--space-4);
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            box-shadow: var(--shadow-md);
+            z-index: var(--z-40);
+        }
+
+        .zoom-controls {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+
+        .zoom-btn {
+            width: 32px;
+            height: 32px;
+            border: 1px solid var(--border-primary);
+            background: var(--bg-primary);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .zoom-btn:hover {
+            background: var(--bg-secondary);
+        }
+
+        .zoom-level {
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+            min-width: 50px;
+            text-align: center;
+        }
+
+        .canvas {
+            margin: 80px 20px 20px;
+            background: white;
+            border-radius: var(--radius-xl);
+            min-height: calc(100vh - 180px);
+            box-shadow: var(--shadow-xl);
+            position: relative;
+            padding: var(--space-8);
+        }
+
+        .canvas.dark-mode {
+            background: var(--bg-inverse);
+        }
+
+        .grid-background {
+            background-image: 
+                linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .drop-zone {
+            border: 2px dashed var(--border-secondary);
+            border-radius: var(--radius-xl);
+            min-height: 200px;
+            margin: var(--space-4);
+            padding: var(--space-8);
+            text-align: center;
+            color: var(--text-tertiary);
+            transition: all var(--transition-normal);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-4);
+        }
+
+        .drop-zone.drag-over {
+            border-color: var(--color-primary-500);
+            background: rgba(59, 130, 246, 0.05);
+            transform: scale(1.02);
+        }
+
+        .drop-zone-icon {
+            font-size: 48px;
+            opacity: 0.5;
+        }
+
+        .drop-zone-text {
+            font-size: var(--text-lg);
+            font-weight: var(--font-medium);
+        }
+
+        .drop-zone-hint {
+            font-size: var(--text-sm);
+            opacity: 0.7;
+        }
+
+        .canvas-element {
+            background: var(--bg-primary);
+            border: 2px solid transparent;
+            border-radius: var(--radius-lg);
+            padding: var(--space-4);
+            margin: var(--space-3);
+            position: relative;
+            cursor: move;
+            transition: all var(--transition-fast);
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+        }
+
+        .canvas-element:hover {
+            border-color: var(--color-primary-300);
+            box-shadow: var(--shadow-md);
+        }
+
+        .canvas-element.selected {
+            border-color: var(--color-primary-500);
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+        }
+
+        .element-controls {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            display: flex;
+            gap: var(--space-1);
+            opacity: 0;
+            transition: all var(--transition-fast);
+        }
+
+        .canvas-element:hover .element-controls,
+        .canvas-element.selected .element-controls {
+            opacity: 1;
+        }
+
+        .control-btn {
+            width: 28px;
+            height: 28px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-primary);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: var(--text-xs);
+            transition: all var(--transition-fast);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .control-btn:hover {
+            background: var(--color-primary-500);
+            color: white;
+        }
+
+        /* 속성 패널 */
+        .properties-panel {
+            width: 320px;
+            background: var(--bg-primary);
+            border-left: 1px solid var(--border-primary);
+            margin-top: 80px;
+            height: calc(100vh - 80px);
+            overflow-y: auto;
+        }
+
+        .properties-header {
+            padding: var(--space-6);
+            border-bottom: 1px solid var(--border-primary);
+            background: var(--bg-secondary);
+        }
+
+        .properties-title {
+            font-size: var(--text-lg);
+            font-weight: var(--font-semibold);
+            color: var(--text-primary);
+        }
+
+        .properties-content {
+            padding: var(--space-6);
+        }
+
+        .property-group {
+            margin-bottom: var(--space-6);
+        }
+
+        .property-label {
+            display: block;
+            font-size: var(--text-sm);
+            font-weight: var(--font-medium);
+            color: var(--text-primary);
+            margin-bottom: var(--space-2);
+        }
+
+        .property-input-group {
+            display: flex;
+            gap: var(--space-2);
+        }
+
+        .color-picker-wrapper {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+
+        .color-preview {
+            width: 32px;
+            height: 32px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-primary);
+            cursor: pointer;
+        }
+
+        .property-slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 6px;
+            border-radius: var(--radius-full);
+            background: var(--bg-tertiary);
+            outline: none;
+        }
+
+        .property-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: var(--radius-full);
+            background: var(--color-primary-500);
+            cursor: pointer;
+        }
+
+        /* 모달 */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: var(--z-50);
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: var(--bg-primary);
+            border-radius: var(--radius-2xl);
+            padding: var(--space-8);
+            max-width: 800px;
+            width: 90vw;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-xl);
+            animation: scaleIn 0.3s ease-out;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-6);
+        }
+
+        .modal-title {
+            font-size: var(--text-2xl);
+            font-weight: var(--font-bold);
+            color: var(--text-primary);
+        }
+
+        .close-btn {
+            width: 32px;
+            height: 32px;
+            border: none;
+            background: var(--bg-secondary);
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-fast);
+        }
+
+        .close-btn:hover {
+            background: var(--bg-tertiary);
+        }
+
+        .code-tabs {
+            display: flex;
+            gap: var(--space-2);
+            margin-bottom: var(--space-4);
+        }
+
+        .code-tab {
+            padding: var(--space-2) var(--space-4);
+            background: var(--bg-secondary);
+            border: none;
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .code-tab.active {
+            background: var(--color-primary-500);
+            color: white;
+        }
+
+        .code-preview {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: var(--space-6);
+            border-radius: var(--radius-xl);
+            font-family: var(--font-mono);
+            font-size: var(--text-sm);
+            line-height: var(--leading-relaxed);
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+
+        /* 애니메이션 */
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .sidebar {
+            animation: slideInLeft 0.3s ease-out;
+        }
+
+        .properties-panel {
+            animation: slideInRight 0.3s ease-out;
+        }
+
+        /* 반응형 */
+        @media (max-width: 1024px) {
+            .sidebar {
+                width: 240px;
+            }
+            
+            .properties-panel {
+                width: 280px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar,
+            .properties-panel {
+                position: fixed;
+                z-index: var(--z-40);
+                transform: translateX(-100%);
+                transition: transform var(--transition-normal);
+            }
+
+            .properties-panel {
+                transform: translateX(100%);
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .properties-panel.active {
+                transform: translateX(0);
+            }
+
+            .canvas-container {
+                width: 100%;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-primary);
+            border-radius: var(--radius-lg);
+            padding: var(--space-2);
+            cursor: pointer;
+        }
+
+        /* 스낵바 */
+        .snackbar {
+            position: fixed;
+            bottom: var(--space-6);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-inverse);
+            color: var(--text-inverse);
+            padding: var(--space-4) var(--space-6);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-xl);
+            z-index: var(--z-50);
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-normal);
+        }
+
+        .snackbar.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- 헤더 -->
+    <div class="builder-header">
+        <div class="logo-section">
+            <div class="logo">🎨 Visual Builder Pro</div>
+            <div class="project-name">새 프로젝트</div>
+        </div>
+        
+        <div class="header-actions">
+            <div class="view-toggle">
+                <button class="active" onclick="setView('design')">디자인</button>
+                <button onclick="setView('preview')">미리보기</button>
+            </div>
+            
+            <button class="mobile-toggle" onclick="toggleSidebar()">☰</button>
+            
+            <button class="btn btn-secondary" onclick="clearCanvas()">
+                🗑️ 초기화
+            </button>
+            
+            <button class="btn btn-primary" onclick="showCodeModal()">
+                💻 코드 생성
+            </button>
+        </div>
+    </div>
+
+    <div class="builder-container">
+        <!-- 사이드바 - 컴포넌트 라이브러리 -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-section">
+                <div class="sidebar-header">
+                    <span>🧱 기본 요소</span>
+                </div>
+                <div class="sidebar-content">
+                    <div class="component-grid">
+                        <div class="component-item" draggable="true" data-component="heading">
+                            <div class="component-icon">📝</div>
+                            <div class="component-name">제목</div>
+                        </div>
+                        <div class="component-item" draggable="true" data-component="text">
+                            <div class="component-icon">📄</div>
+                            <div class="component-name">텍스트</div>
+                        </div>
+                        <div class="component-item" draggable="true" data-component="button">
+                            <div class="component-icon">🔘</div>
+                            <div class="component-name">버튼</div>
+                        </div>
+                        <div class="component-item" draggable="true" data-component="input">
+                            <div class="component-icon">📝</div>
+                            <div class="component-name">입력</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-header">
+                    <span>📐 레이아웃</span>
+                </div>
+                <div class="sidebar-content">
+                    <div class="component-grid">
+                        <div class="component-item" draggable="true" data-component="card">
+                            <div class="component-icon">🎴</div>
+                            <div class="component-name">카드</div>
+                        </div>
+                        <div class="component-item" draggable="true" data-component="container">
+                            <div class="component-icon">📦</div>
+                            <div class="component-name">컨테이너</div>
+                        </div>
+                        <div class="component-item" draggable="true" data-component="divider">
+                            <div class="component-icon">➖</div>
+                            <div class="component-name">구분선</div>
+                        </div>
+                        <div class="component-item" draggable="true" data-component="spacer">
+                            <div class="component-icon">⬜</div>
+                            <div class="component-name">공백</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-header">
+                    <span>🖼️ 미디어</span>
+                </div>
+                <div class="sidebar-content">
+                    <div class="component-grid">
+                        <div class="component-item" draggable="true" data-component="image">
+                            <div class="component-icon">🖼️</div>
+                            <div class="component-name">이미지</div>
+                        </div>
+                        <div class="component-item" draggable="true" data-component="video">
+                            <div class="component-icon">🎥</div>
+                            <div class="component-name">비디오</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 메인 캔버스 -->
+        <div class="canvas-container">
+            <div class="canvas-toolbar">
+                <div class="zoom-controls">
+                    <button class="zoom-btn" onclick="changeZoom(-10)">−</button>
+                    <div class="zoom-level" id="zoomLevel">100%</div>
+                    <button class="zoom-btn" onclick="changeZoom(10)">+</button>
+                </div>
+                
+                <div class="flex gap-2">
+                    <button class="btn btn-sm" onclick="toggleGrid()">
+                        <span id="gridIcon">⊞</span> 그리드
+                    </button>
+                    <button class="btn btn-sm" onclick="toggleDarkMode()">
+                        <span id="modeIcon">🌙</span> 다크
+                    </button>
+                </div>
+            </div>
+
+            <div class="canvas" id="canvas">
+                <div class="drop-zone" id="dropZone">
+                    <div class="drop-zone-icon">🎨</div>
+                    <div class="drop-zone-text">컴포넌트를 여기에 드래그하세요</div>
+                    <div class="drop-zone-hint">왼쪽 패널에서 원하는 컴포넌트를 끌어다 놓으세요</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 속성 패널 -->
+        <div class="properties-panel" id="propertiesPanel">
+            <div class="properties-header">
+                <div class="properties-title">속성 패널</div>
+            </div>
+            <div class="properties-content" id="propertiesContent">
+                <div style="text-align: center; color: var(--text-tertiary); padding: var(--space-8);">
+                    <div style="font-size: 48px; margin-bottom: var(--space-4);">⚙️</div>
+                    <p>컴포넌트를 선택하면<br>속성을 편집할 수 있습니다</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 코드 생성 모달 -->
+    <div class="modal-overlay" id="codeModal">
+        <div class="modal">
+            <div class="modal-header">
+                <div class="modal-title">생성된 코드</div>
+                <button class="close-btn" onclick="closeCodeModal()">✕</button>
+            </div>
+            
+            <div class="code-tabs">
+                <button class="code-tab active" onclick="switchCodeTab('html')">HTML</button>
+                <button class="code-tab" onclick="switchCodeTab('react')">React</button>
+                <button class="code-tab" onclick="switchCodeTab('vue')">Vue</button>
+            </div>
+            
+            <div class="code-preview" id="codePreview">
+                <!-- 생성된 코드가 여기에 표시됩니다 -->
+            </div>
+            
+            <div style="margin-top: var(--space-6); display: flex; gap: var(--space-3);">
+                <button class="btn btn-primary flex-1" onclick="copyCode()">
+                    📋 코드 복사
+                </button>
+                <button class="btn btn-secondary" onclick="downloadCode()">
+                    💾 파일 다운로드
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 스낵바 -->
+    <div class="snackbar" id="snackbar"></div>
+
+    <script>
+        // 전역 변수
+        let selectedElement = null;
+        let elementCounter = 0;
+        let zoomLevel = 100;
+        let gridVisible = false;
+        let darkMode = false;
+        let currentCodeTab = 'html';
+        let components = [];
+
+        // 컴포넌트 템플릿
+        const componentTemplates = {
+            heading: {
+                html: '<h2 style="margin: 0; color: var(--text-primary);">제목을 입력하세요</h2>',
+                properties: {
+                    text: '제목을 입력하세요',
+                    level: 'h2',
+                    color: '#1f2937',
+                    fontSize: '24px',
+                    textAlign: 'left'
+                }
+            },
+            text: {
+                html: '<p style="margin: 0; color: var(--text-primary); line-height: 1.6;">텍스트를 입력하세요</p>',
+                properties: {
+                    text: '텍스트를 입력하세요',
+                    fontSize: '16px',
+                    color: '#374151',
+                    textAlign: 'left',
+                    lineHeight: '1.6'
+                }
+            },
+            button: {
+                html: '<button style="background: #3b82f6; color: white; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer; font-size: 16px;">버튼</button>',
+                properties: {
+                    text: '버튼',
+                    backgroundColor: '#3b82f6',
+                    color: '#ffffff',
+                    fontSize: '16px',
+                    padding: '12px 24px',
+                    borderRadius: '8px'
+                }
+            },
+            input: {
+                html: '<input type="text" placeholder="입력하세요" style="width: 100%; padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 16px;">',
+                properties: {
+                    placeholder: '입력하세요',
+                    type: 'text',
+                    fontSize: '16px',
+                    padding: '12px',
+                    borderColor: '#d1d5db',
+                    borderRadius: '8px'
+                }
+            },
+            card: {
+                html: '<div style="background: white; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);"><h3 style="margin: 0 0 12px 0;">카드 제목</h3><p style="margin: 0; color: #6b7280;">카드 내용을 입력하세요</p></div>',
+                properties: {
+                    title: '카드 제목',
+                    content: '카드 내용을 입력하세요',
+                    backgroundColor: '#ffffff',
+                    borderColor: '#e5e7eb',
+                    borderRadius: '12px',
+                    padding: '24px'
+                }
+            },
+            container: {
+                html: '<div style="border: 2px dashed #d1d5db; border-radius: 8px; padding: 24px; min-height: 100px; display: flex; align-items: center; justify-content: center; color: #9ca3af;">컨테이너</div>',
+                properties: {
+                    backgroundColor: 'transparent',
+                    borderColor: '#d1d5db',
+                    borderStyle: 'dashed',
+                    borderRadius: '8px',
+                    padding: '24px',
+                    minHeight: '100px'
+                }
+            },
+            image: {
+                html: '<img src="https://via.placeholder.com/400x200" alt="이미지" style="max-width: 100%; height: auto; border-radius: 8px;">',
+                properties: {
+                    src: 'https://via.placeholder.com/400x200',
+                    alt: '이미지',
+                    borderRadius: '8px',
+                    maxWidth: '100%'
+                }
+            },
+            video: {
+                html: '<video controls style="max-width: 100%; border-radius: 8px;"><source src="sample.mp4" type="video/mp4">브라우저가 비디오를 지원하지 않습니다.</video>',
+                properties: {
+                    src: 'sample.mp4',
+                    controls: true,
+                    borderRadius: '8px',
+                    maxWidth: '100%'
+                }
+            },
+            divider: {
+                html: '<hr style="border: none; height: 1px; background: #e5e7eb; margin: 24px 0;">',
+                properties: {
+                    color: '#e5e7eb',
+                    height: '1px',
+                    margin: '24px 0'
+                }
+            },
+            spacer: {
+                html: '<div style="height: 40px;"></div>',
+                properties: {
+                    height: '40px'
+                }
+            }
+        };
+
+        // HTML 새니타이제이션 함수
+        function sanitizeHTML(input) {
+            if (typeof input !== 'string') {
+                return '';
+            }
+            
+            return input
+                // 스크립트 태그 제거
+                .replace(/<script[^>]*>.*?<\/script>/gis, '')
+                // 이벤트 핸들러 속성 제거
+                .replace(/\s*on\w+\s*=\s*["'][^"']*["']/gi, '')
+                // JavaScript URI 제거
+                .replace(/javascript:/gi, '')
+                // data URI 제한 (이미지 제외)
+                .replace(/data:(?!image\/)[^;]+;base64[^"']*/gi, '')
+                // 위험한 HTML 태그 제거
+                .replace(/<(iframe|embed|object|applet|meta|link|style)[^>]*>.*?<\/\1>/gis, '')
+                // 단독 태그 제거
+                .replace(/<(iframe|embed|object|applet|meta|link|style)[^>]*\/?>/gi, '');
+        }
+
+        // 안전한 innerHTML 설정 함수
+        function safeSetInnerHTML(element, html) {
+            element.innerHTML = sanitizeHTML(html);
+        }
+
+        // 초기화
+        document.addEventListener('DOMContentLoaded', function() {
+            initDragAndDrop();
+            setupCanvasEvents();
+            loadSavedProject();
+        });
+
+        // 드래그 앤 드롭 초기화
+        function initDragAndDrop() {
+            const componentItems = document.querySelectorAll('.component-item');
+            const dropZone = document.getElementById('dropZone');
+            const canvas = document.getElementById('canvas');
+
+            componentItems.forEach(item => {
+                item.addEventListener('dragstart', handleDragStart);
+            });
+
+            canvas.addEventListener('dragover', handleDragOver);
+            canvas.addEventListener('drop', handleDrop);
+            canvas.addEventListener('dragleave', handleDragLeave);
+        }
+
+        function handleDragStart(e) {
+            e.dataTransfer.setData('component', e.target.getAttribute('data-component'));
+            e.dataTransfer.effectAllowed = 'copy';
+        }
+
+        function handleDragOver(e) {
+            e.preventDefault();
+            e.dataTransfer.dropEffect = 'copy';
+            
+            const dropZone = document.getElementById('dropZone');
+            if (dropZone.style.display !== 'none') {
+                dropZone.classList.add('drag-over');
+            }
+        }
+
+        function handleDragLeave(e) {
+            const dropZone = document.getElementById('dropZone');
+            dropZone.classList.remove('drag-over');
+        }
+
+        function handleDrop(e) {
+            e.preventDefault();
+            const componentType = e.dataTransfer.getData('component');
+            
+            if (componentType) {
+                addComponent(componentType, e.clientX, e.clientY);
+            }
+            
+            const dropZone = document.getElementById('dropZone');
+            dropZone.classList.remove('drag-over');
+        }
+
+        // 컴포넌트 추가
+        function addComponent(type, x = null, y = null) {
+            const template = componentTemplates[type];
+            if (!template) return;
+
+            const elementId = `element-${elementCounter++}`;
+            const canvas = document.getElementById('canvas');
+            const dropZone = document.getElementById('dropZone');
+
+            // 첫 번째 컴포넌트 추가 시 drop zone 숨기기
+            if (components.length === 0) {
+                dropZone.style.display = 'none';
+            }
+
+            const elementWrapper = document.createElement('div');
+            elementWrapper.className = 'canvas-element';
+            elementWrapper.id = elementId;
+            safeSetInnerHTML(elementWrapper, `
+                <div class="element-controls">
+                    <button class="control-btn" onclick="duplicateElement('${elementId}')" title="복제">📋</button>
+                    <button class="control-btn" onclick="moveElementUp('${elementId}')" title="위로">↑</button>
+                    <button class="control-btn" onclick="moveElementDown('${elementId}')" title="아래로">↓</button>
+                    <button class="control-btn" onclick="deleteElement('${elementId}')" title="삭제">🗑️</button>
+                </div>
+                ${template.html}
+            `);
+
+            elementWrapper.addEventListener('click', (e) => {
+                e.stopPropagation();
+                selectElement(elementWrapper, type);
+            });
+
+            canvas.appendChild(elementWrapper);
+
+            // 컴포넌트 데이터 저장
+            const componentData = {
+                id: elementId,
+                type: type,
+                properties: { ...template.properties }
+            };
+            components.push(componentData);
+
+            // 자동 선택
+            selectElement(elementWrapper, type);
+            
+            // 성공 메시지
+            showSnackbar(`${getComponentDisplayName(type)} 컴포넌트가 추가되었습니다`);
+            
+            // 자동 저장
+            saveProject();
+        }
+
+        // 컴포넌트 선택
+        function selectElement(element, type) {
+            // 이전 선택 해제
+            document.querySelectorAll('.canvas-element').forEach(el => {
+                el.classList.remove('selected');
+            });
+
+            // 새 선택
+            element.classList.add('selected');
+            selectedElement = element;
+
+            // 속성 패널 업데이트
+            showProperties(element.id, type);
+        }
+
+        // 속성 패널 표시
+        function showProperties(elementId, type) {
+            const component = components.find(c => c.id === elementId);
+            if (!component) return;
+
+            const propertiesContent = document.getElementById('propertiesContent');
+            let html = `<div class="properties-header" style="border: none; background: none; padding: 0; margin-bottom: var(--space-6);">
+                <div class="properties-title">${getComponentDisplayName(type)} 속성</div>
+            </div>`;
+
+            // 타입별 속성 폼 생성
+            switch (type) {
+                case 'heading':
+                case 'text':
+                    html += generateTextProperties(component);
+                    break;
+                case 'button':
+                    html += generateButtonProperties(component);
+                    break;
+                case 'input':
+                    html += generateInputProperties(component);
+                    break;
+                case 'card':
+                    html += generateCardProperties(component);
+                    break;
+                case 'image':
+                    html += generateImageProperties(component);
+                    break;
+                case 'container':
+                    html += generateContainerProperties(component);
+                    break;
+                default:
+                    html += generateBasicProperties(component);
+            }
+
+            safeSetInnerHTML(propertiesContent, html);
+        }
+
+        // 텍스트 속성 생성
+        function generateTextProperties(component) {
+            return `
+                <div class="property-group">
+                    <label class="property-label">텍스트</label>
+                    <input class="form-input" type="text" value="${component.properties.text}" 
+                           onchange="updateProperty('${component.id}', 'text', this.value)">
+                </div>
+                <div class="property-group">
+                    <label class="property-label">글꼴 크기</label>
+                    <div class="property-input-group">
+                        <input class="form-input" type="range" min="12" max="48" value="${parseInt(component.properties.fontSize)}" 
+                               onchange="updateProperty('${component.id}', 'fontSize', this.value + 'px')">
+                        <span style="min-width: 40px; text-align: center;">${component.properties.fontSize}</span>
+                    </div>
+                </div>
+                <div class="property-group">
+                    <label class="property-label">색상</label>
+                    <div class="color-picker-wrapper">
+                        <input type="color" value="${component.properties.color}" 
+                               onchange="updateProperty('${component.id}', 'color', this.value)">
+                        <input class="form-input" type="text" value="${component.properties.color}" 
+                               onchange="updateProperty('${component.id}', 'color', this.value)">
+                    </div>
+                </div>
+                <div class="property-group">
+                    <label class="property-label">정렬</label>
+                    <select class="form-select" onchange="updateProperty('${component.id}', 'textAlign', this.value)">
+                        <option value="left" ${component.properties.textAlign === 'left' ? 'selected' : ''}>왼쪽</option>
+                        <option value="center" ${component.properties.textAlign === 'center' ? 'selected' : ''}>가운데</option>
+                        <option value="right" ${component.properties.textAlign === 'right' ? 'selected' : ''}>오른쪽</option>
+                    </select>
+                </div>
+            `;
+        }
+
+        // 버튼 속성 생성
+        function generateButtonProperties(component) {
+            return `
+                <div class="property-group">
+                    <label class="property-label">버튼 텍스트</label>
+                    <input class="form-input" type="text" value="${component.properties.text}" 
+                           onchange="updateProperty('${component.id}', 'text', this.value)">
+                </div>
+                <div class="property-group">
+                    <label class="property-label">배경색</label>
+                    <div class="color-picker-wrapper">
+                        <input type="color" value="${component.properties.backgroundColor}" 
+                               onchange="updateProperty('${component.id}', 'backgroundColor', this.value)">
+                        <input class="form-input" type="text" value="${component.properties.backgroundColor}" 
+                               onchange="updateProperty('${component.id}', 'backgroundColor', this.value)">
+                    </div>
+                </div>
+                <div class="property-group">
+                    <label class="property-label">텍스트 색상</label>
+                    <div class="color-picker-wrapper">
+                        <input type="color" value="${component.properties.color}" 
+                               onchange="updateProperty('${component.id}', 'color', this.value)">
+                        <input class="form-input" type="text" value="${component.properties.color}" 
+                               onchange="updateProperty('${component.id}', 'color', this.value)">
+                    </div>
+                </div>
+                <div class="property-group">
+                    <label class="property-label">둥근 모서리</label>
+                    <div class="property-input-group">
+                        <input class="form-input property-slider" type="range" min="0" max="24" value="${parseInt(component.properties.borderRadius)}" 
+                               onchange="updateProperty('${component.id}', 'borderRadius', this.value + 'px')">
+                        <span style="min-width: 40px; text-align: center;">${component.properties.borderRadius}</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        // 입력 속성 생성
+        function generateInputProperties(component) {
+            return `
+                <div class="property-group">
+                    <label class="property-label">플레이스홀더</label>
+                    <input class="form-input" type="text" value="${component.properties.placeholder}" 
+                           onchange="updateProperty('${component.id}', 'placeholder', this.value)">
+                </div>
+                <div class="property-group">
+                    <label class="property-label">입력 타입</label>
+                    <select class="form-select" onchange="updateProperty('${component.id}', 'type', this.value)">
+                        <option value="text" ${component.properties.type === 'text' ? 'selected' : ''}>텍스트</option>
+                        <option value="email" ${component.properties.type === 'email' ? 'selected' : ''}>이메일</option>
+                        <option value="password" ${component.properties.type === 'password' ? 'selected' : ''}>비밀번호</option>
+                        <option value="number" ${component.properties.type === 'number' ? 'selected' : ''}>숫자</option>
+                    </select>
+                </div>
+            `;
+        }
+
+        // 카드 속성 생성
+        function generateCardProperties(component) {
+            return `
+                <div class="property-group">
+                    <label class="property-label">제목</label>
+                    <input class="form-input" type="text" value="${component.properties.title}" 
+                           onchange="updateProperty('${component.id}', 'title', this.value)">
+                </div>
+                <div class="property-group">
+                    <label class="property-label">내용</label>
+                    <textarea class="form-textarea" rows="3" 
+                              onchange="updateProperty('${component.id}', 'content', this.value)">${component.properties.content}</textarea>
+                </div>
+                <div class="property-group">
+                    <label class="property-label">배경색</label>
+                    <div class="color-picker-wrapper">
+                        <input type="color" value="${component.properties.backgroundColor}" 
+                               onchange="updateProperty('${component.id}', 'backgroundColor', this.value)">
+                        <input class="form-input" type="text" value="${component.properties.backgroundColor}" 
+                               onchange="updateProperty('${component.id}', 'backgroundColor', this.value)">
+                    </div>
+                </div>
+            `;
+        }
+
+        // 이미지 속성 생성
+        function generateImageProperties(component) {
+            return `
+                <div class="property-group">
+                    <label class="property-label">이미지 URL</label>
+                    <input class="form-input" type="text" value="${component.properties.src}" 
+                           onchange="updateProperty('${component.id}', 'src', this.value)">
+                </div>
+                <div class="property-group">
+                    <label class="property-label">대체 텍스트</label>
+                    <input class="form-input" type="text" value="${component.properties.alt}" 
+                           onchange="updateProperty('${component.id}', 'alt', this.value)">
+                </div>
+            `;
+        }
+
+        // 컨테이너 속성 생성
+        function generateContainerProperties(component) {
+            return `
+                <div class="property-group">
+                    <label class="property-label">배경색</label>
+                    <div class="color-picker-wrapper">
+                        <input type="color" value="${component.properties.backgroundColor || '#ffffff'}" 
+                               onchange="updateProperty('${component.id}', 'backgroundColor', this.value)">
+                        <input class="form-input" type="text" value="${component.properties.backgroundColor || 'transparent'}" 
+                               onchange="updateProperty('${component.id}', 'backgroundColor', this.value)">
+                    </div>
+                </div>
+                <div class="property-group">
+                    <label class="property-label">최소 높이</label>
+                    <div class="property-input-group">
+                        <input class="form-input" type="range" min="50" max="500" value="${parseInt(component.properties.minHeight)}" 
+                               onchange="updateProperty('${component.id}', 'minHeight', this.value + 'px')">
+                        <span style="min-width: 60px; text-align: center;">${component.properties.minHeight}</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        // 기본 속성 생성
+        function generateBasicProperties(component) {
+            return `
+                <div class="property-group">
+                    <div style="text-align: center; color: var(--text-tertiary); padding: var(--space-4);">
+                        <div style="font-size: 24px; margin-bottom: var(--space-2);">⚙️</div>
+                        <p>이 컴포넌트는 추가 속성이 없습니다</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        // 속성 업데이트
+        function updateProperty(elementId, property, value) {
+            const element = document.getElementById(elementId);
+            const component = components.find(c => c.id === elementId);
+            
+            if (!element || !component) return;
+
+            // 컴포넌트 데이터 업데이트
+            component.properties[property] = value;
+
+            // DOM 업데이트
+            updateElementDOM(element, component);
+            
+            // 자동 저장
+            saveProject();
+        }
+
+        // DOM 요소 업데이트
+        function updateElementDOM(element, component) {
+            const contentElement = element.querySelector('h1, h2, h3, h4, h5, h6, p, button, input, img, video, div:not(.element-controls), hr');
+            
+            if (!contentElement) return;
+
+            const { type, properties } = component;
+
+            switch (type) {
+                case 'heading':
+                case 'text':
+                    contentElement.textContent = properties.text;
+                    contentElement.style.fontSize = properties.fontSize;
+                    contentElement.style.color = properties.color;
+                    contentElement.style.textAlign = properties.textAlign;
+                    break;
+
+                case 'button':
+                    contentElement.textContent = properties.text;
+                    contentElement.style.backgroundColor = properties.backgroundColor;
+                    contentElement.style.color = properties.color;
+                    contentElement.style.borderRadius = properties.borderRadius;
+                    break;
+
+                case 'input':
+                    contentElement.placeholder = properties.placeholder;
+                    contentElement.type = properties.type;
+                    break;
+
+                case 'card':
+                    const cardTitle = contentElement.querySelector('h3');
+                    const cardContent = contentElement.querySelector('p');
+                    if (cardTitle) cardTitle.textContent = properties.title;
+                    if (cardContent) cardContent.textContent = properties.content;
+                    contentElement.style.backgroundColor = properties.backgroundColor;
+                    break;
+
+                case 'image':
+                    contentElement.src = properties.src;
+                    contentElement.alt = properties.alt;
+                    break;
+
+                case 'container':
+                    contentElement.style.backgroundColor = properties.backgroundColor;
+                    contentElement.style.minHeight = properties.minHeight;
+                    break;
+            }
+        }
+
+        // 컴포넌트 표시 이름
+        function getComponentDisplayName(type) {
+            const names = {
+                heading: '제목',
+                text: '텍스트',
+                button: '버튼',
+                input: '입력 필드',
+                card: '카드',
+                container: '컨테이너',
+                image: '이미지',
+                video: '비디오',
+                divider: '구분선',
+                spacer: '공백'
+            };
+            return names[type] || type;
+        }
+
+        // 요소 조작 함수들
+        function duplicateElement(elementId) {
+            const component = components.find(c => c.id === elementId);
+            if (component) {
+                addComponent(component.type);
+                showSnackbar('컴포넌트가 복제되었습니다');
+            }
+        }
+
+        function moveElementUp(elementId) {
+            const element = document.getElementById(elementId);
+            const previousElement = element.previousElementSibling;
+            
+            if (previousElement && !previousElement.classList.contains('drop-zone')) {
+                element.parentNode.insertBefore(element, previousElement);
+                showSnackbar('컴포넌트를 위로 이동했습니다');
+                saveProject();
+            }
+        }
+
+        function moveElementDown(elementId) {
+            const element = document.getElementById(elementId);
+            const nextElement = element.nextElementSibling;
+            
+            if (nextElement) {
+                element.parentNode.insertBefore(nextElement, element);
+                showSnackbar('컴포넌트를 아래로 이동했습니다');
+                saveProject();
+            }
+        }
+
+        function deleteElement(elementId) {
+            if (confirm('이 컴포넌트를 삭제하시겠습니까?')) {
+                const element = document.getElementById(elementId);
+                element.remove();
+                
+                // 컴포넌트 데이터에서 제거
+                components = components.filter(c => c.id !== elementId);
+                
+                // 선택 해제
+                if (selectedElement && selectedElement.id === elementId) {
+                    selectedElement = null;
+                    const propertiesContent = document.getElementById('propertiesContent');
+                    safeSetInnerHTML(propertiesContent, `
+                        <div style="text-align: center; color: var(--text-tertiary); padding: var(--space-8);">
+                            <div style="font-size: 48px; margin-bottom: var(--space-4);">⚙️</div>
+                            <p>컴포넌트를 선택하면<br>속성을 편집할 수 있습니다</p>
+                        </div>
+                    `;
+                }
+                
+                // 모든 컴포넌트가 삭제되면 drop zone 다시 표시
+                if (components.length === 0) {
+                    document.getElementById('dropZone').style.display = 'flex';
+                }
+                
+                showSnackbar('컴포넌트가 삭제되었습니다');
+                saveProject();
+            }
+        }
+
+        // 캔버스 초기화
+        function clearCanvas() {
+            if (confirm('모든 컴포넌트를 삭제하시겠습니까?')) {
+                const canvas = document.getElementById('canvas');
+                const elements = canvas.querySelectorAll('.canvas-element');
+                elements.forEach(el => el.remove());
+                
+                components = [];
+                selectedElement = null;
+                elementCounter = 0;
+                
+                document.getElementById('dropZone').style.display = 'flex';
+                
+                const propertiesContent = document.getElementById('propertiesContent');
+                safeSetInnerHTML(propertiesContent, `
+                    <div style="text-align: center; color: var(--text-tertiary); padding: var(--space-8);">
+                        <div style="font-size: 48px; margin-bottom: var(--space-4);">⚙️</div>
+                        <p>컴포넌트를 선택하면<br>속성을 편집할 수 있습니다</p>
+                    </div>
+                `;
+                
+                showSnackbar('캔버스가 초기화되었습니다');
+                saveProject();
+            }
+        }
+
+        // 캔버스 이벤트 설정
+        function setupCanvasEvents() {
+            const canvas = document.getElementById('canvas');
+            
+            canvas.addEventListener('click', function(e) {
+                if (e.target === canvas || e.target.id === 'dropZone') {
+                    // 캔버스 배경 클릭 시 선택 해제
+                    document.querySelectorAll('.canvas-element').forEach(el => {
+                        el.classList.remove('selected');
+                    });
+                    selectedElement = null;
+                    
+                    const propertiesContent = document.getElementById('propertiesContent');
+                    safeSetInnerHTML(propertiesContent, `
+                        <div style="text-align: center; color: var(--text-tertiary); padding: var(--space-8);">
+                            <div style="font-size: 48px; margin-bottom: var(--space-4);">⚙️</div>
+                            <p>컴포넌트를 선택하면<br>속성을 편집할 수 있습니다</p>
+                        </div>
+                    `;
+                }
+            });
+        }
+
+        // 줌 조절
+        function changeZoom(delta) {
+            zoomLevel = Math.max(25, Math.min(200, zoomLevel + delta));
+            document.getElementById('zoomLevel').textContent = zoomLevel + '%';
+            
+            const canvas = document.getElementById('canvas');
+            canvas.style.transform = `scale(${zoomLevel / 100})`;
+            canvas.style.transformOrigin = 'top left';
+        }
+
+        // 그리드 토글
+        function toggleGrid() {
+            gridVisible = !gridVisible;
+            const canvas = document.getElementById('canvas');
+            const gridIcon = document.getElementById('gridIcon');
+            
+            if (gridVisible) {
+                canvas.classList.add('grid-background');
+                gridIcon.textContent = '⊡';
+            } else {
+                canvas.classList.remove('grid-background');
+                gridIcon.textContent = '⊞';
+            }
+        }
+
+        // 다크모드 토글
+        function toggleDarkMode() {
+            darkMode = !darkMode;
+            const canvas = document.getElementById('canvas');
+            const modeIcon = document.getElementById('modeIcon');
+            
+            if (darkMode) {
+                canvas.classList.add('dark-mode');
+                modeIcon.textContent = '☀️';
+            } else {
+                canvas.classList.remove('dark-mode');
+                modeIcon.textContent = '🌙';
+            }
+        }
+
+        // 뷰 전환
+        function setView(view) {
+            const buttons = document.querySelectorAll('.view-toggle button');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            if (view === 'preview') {
+                // 미리보기 모드
+                showSnackbar('미리보기 모드로 전환되었습니다');
+            } else {
+                // 디자인 모드
+                showSnackbar('디자인 모드로 전환되었습니다');
+            }
+        }
+
+        // 코드 생성 모달
+        function showCodeModal() {
+            document.getElementById('codeModal').classList.add('active');
+            generateCode('html');
+        }
+
+        function closeCodeModal() {
+            document.getElementById('codeModal').classList.remove('active');
+        }
+
+        function switchCodeTab(format) {
+            // 탭 활성화
+            document.querySelectorAll('.code-tab').forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            currentCodeTab = format;
+            generateCode(format);
+        }
+
+        function generateCode(format) {
+            let code = '';
+
+            switch (format) {
+                case 'html':
+                    code = generateHTMLCode();
+                    break;
+                case 'react':
+                    code = generateReactCode();
+                    break;
+                case 'vue':
+                    code = generateVueCode();
+                    break;
+            }
+
+            document.getElementById('codePreview').textContent = code;
+        }
+
+        function generateHTMLCode() {
+            let html = `<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generated Page</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f9fafb;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+`;
+
+            components.forEach(comp => {
+                const template = componentTemplates[comp.type];
+                if (template) {
+                    html += '        ' + updateTemplateWithProperties(template.html, comp.properties) + '\n';
+                }
+            });
+
+            html += `    </div>
+</body>
+</html>`;
+            return html;
+        }
+
+        function generateReactCode() {
+            let code = `import React from 'react';
+
+function App() {
+    return (
+        <div style={{
+            fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+            margin: 0,
+            padding: '20px',
+            background: '#f9fafb'
+        }}>
+            <div style={{
+                maxWidth: '1200px',
+                margin: '0 auto',
+                background: 'white',
+                padding: '32px',
+                borderRadius: '16px',
+                boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
+            }}>
+`;
+
+            components.forEach(comp => {
+                const template = componentTemplates[comp.type];
+                if (template) {
+                    code += '                ' + convertToReactJSX(template.html, comp.properties) + '\n';
+                }
+            });
+
+            code += `            </div>
+        </div>
+    );
+}
+
+export default App;`;
+            return code;
+        }
+
+        function generateVueCode() {
+            let template = `<template>
+    <div class="app">
+        <div class="container">
+`;
+
+            components.forEach(comp => {
+                const tmpl = componentTemplates[comp.type];
+                if (tmpl) {
+                    template += '            ' + convertToVueTemplate(tmpl.html, comp.properties) + '\n';
+                }
+            });
+
+            template += `        </div>
+    </div>
+</template>
+
+<style scoped>
+.app {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: #f9fafb;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+</style>`;
+            return template;
+        }
+
+        // 템플릿에 속성 적용
+        function updateTemplateWithProperties(html, properties) {
+            let result = html;
+            
+            // 텍스트 교체
+            if (properties.text) {
+                result = result.replace(/>(.*?)</, `>${properties.text}<`);
+            }
+            
+            // 플레이스홀더 교체
+            if (properties.placeholder) {
+                result = result.replace(/placeholder="[^"]*"/, `placeholder="${properties.placeholder}"`);
+            }
+            
+            return result;
+        }
+
+        // React JSX 변환
+        function convertToReactJSX(html, properties) {
+            let jsx = html.replace(/style="([^"]+)"/g, (match, styles) => {
+                const styleObj = styles.split(';').reduce((obj, style) => {
+                    if (style.trim()) {
+                        const [key, value] = style.split(':').map(s => s.trim());
+                        const camelKey = key.replace(/-([a-z])/g, (g) => g[1].toUpperCase());
+                        obj[camelKey] = value;
+                    }
+                    return obj;
+                }, {});
+                
+                return `style={${JSON.stringify(styleObj)}}`;
+            });
+            
+            jsx = jsx.replace(/class="/g, 'className="');
+            jsx = jsx.replace(/<input([^>]*)[^/]>/g, '<input$1 />');
+            jsx = jsx.replace(/<hr([^>]*)>/g, '<hr$1 />');
+            jsx = jsx.replace(/<img([^>]*)[^/]>/g, '<img$1 />');
+            
+            return jsx;
+        }
+
+        // Vue 템플릿 변환
+        function convertToVueTemplate(html, properties) {
+            return html; // 간단한 구현
+        }
+
+        // 코드 복사
+        function copyCode() {
+            const codePreview = document.getElementById('codePreview');
+            navigator.clipboard.writeText(codePreview.textContent).then(() => {
+                showSnackbar('코드가 클립보드에 복사되었습니다');
+            });
+        }
+
+        // 파일 다운로드
+        function downloadCode() {
+            const codePreview = document.getElementById('codePreview');
+            const extensions = { html: 'html', react: 'jsx', vue: 'vue' };
+            const filename = `generated-page.${extensions[currentCodeTab]}`;
+            
+            const blob = new Blob([codePreview.textContent], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            showSnackbar(`${filename} 파일이 다운로드되었습니다`);
+        }
+
+        // 사이드바 토글 (모바일)
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        }
+
+        // 스낵바 표시
+        function showSnackbar(message) {
+            const snackbar = document.getElementById('snackbar');
+            snackbar.textContent = message;
+            snackbar.classList.add('show');
+            
+            setTimeout(() => {
+                snackbar.classList.remove('show');
+            }, 3000);
+        }
+
+        // 프로젝트 저장/로드
+        function saveProject() {
+            const projectData = {
+                components: components,
+                settings: {
+                    zoomLevel,
+                    gridVisible,
+                    darkMode
+                },
+                timestamp: Date.now()
+            };
+            
+            localStorage.setItem('visual-builder-project', JSON.stringify(projectData));
+        }
+
+        function loadSavedProject() {
+            const saved = localStorage.getItem('visual-builder-project');
+            if (saved) {
+                try {
+                    const projectData = JSON.parse(saved);
+                    
+                    // 설정 복원
+                    if (projectData.settings) {
+                        zoomLevel = projectData.settings.zoomLevel || 100;
+                        gridVisible = projectData.settings.gridVisible || false;
+                        darkMode = projectData.settings.darkMode || false;
+                        
+                        // UI 업데이트
+                        document.getElementById('zoomLevel').textContent = zoomLevel + '%';
+                        if (gridVisible) toggleGrid();
+                        if (darkMode) toggleDarkMode();
+                    }
+                    
+                    // 컴포넌트 복원
+                    if (projectData.components && projectData.components.length > 0) {
+                        document.getElementById('dropZone').style.display = 'none';
+                        
+                        projectData.components.forEach(comp => {
+                            // 복원된 컴포넌트를 캔버스에 추가
+                            const template = componentTemplates[comp.type];
+                            if (template) {
+                                const elementWrapper = document.createElement('div');
+                                elementWrapper.className = 'canvas-element';
+                                elementWrapper.id = comp.id;
+                                safeSetInnerHTML(elementWrapper, `
+                                    <div class="element-controls">
+                                        <button class="control-btn" onclick="duplicateElement('${comp.id}')" title="복제">📋</button>
+                                        <button class="control-btn" onclick="moveElementUp('${comp.id}')" title="위로">↑</button>
+                                        <button class="control-btn" onclick="moveElementDown('${comp.id}')" title="아래로">↓</button>
+                                        <button class="control-btn" onclick="deleteElement('${comp.id}')" title="삭제">🗑️</button>
+                                    </div>
+                                    ${template.html}
+                                `;
+
+                                elementWrapper.addEventListener('click', (e) => {
+                                    e.stopPropagation();
+                                    selectElement(elementWrapper, comp.type);
+                                });
+
+                                document.getElementById('canvas').appendChild(elementWrapper);
+                                
+                                // 속성 적용
+                                updateElementDOM(elementWrapper, comp);
+                            }
+                        });
+                        
+                        components = projectData.components;
+                        elementCounter = Math.max(...components.map(c => parseInt(c.id.split('-')[1]))) + 1;
+                    }
+                } catch (error) {
+                    console.error('프로젝트 로드 실패:', error);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "instructions": "Create QR-based restaurant ordering system with real-time kitchen alerts",
+  "knowledge": [
+    "QR generation",
+    "Real-time orders",
+    "POS integration",
+    "Mobile-first design"
+  ],
+  "tools": [
+    "Write",
+    "Edit",
+    "Magic",
+    "Context7"
+  ],
+  "memory": "Restaurant workflow patterns, mobile ordering UX",
+  "state": "Project: restaurant, User: business, Focus: efficiency",
+  "query": "Build QR ordering system to improve table turnover"
+}

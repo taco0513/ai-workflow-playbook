@@ -1,0 +1,28 @@
+{
+  "layout": "mobile-first",
+  "components": [
+    {
+      "type": "heading",
+      "text": "맛있는 식당 메뉴"
+    },
+    {
+      "type": "text",
+      "text": "QR 코드로 간편하게 주문하세요"
+    },
+    {
+      "type": "card",
+      "title": "추천 메뉴",
+      "content": "오늘의 특별 요리"
+    },
+    {
+      "type": "button",
+      "text": "주문하기",
+      "backgroundColor": "#F59E0B"
+    }
+  ],
+  "theme": {
+    "primaryColor": "#F59E0B",
+    "mobileOptimized": true,
+    "fontSize": "large"
+  }
+}

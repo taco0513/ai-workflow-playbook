@@ -1,0 +1,29 @@
+{
+  "layout": "dashboard",
+  "components": [
+    {
+      "type": "heading",
+      "text": "팀워크 플러스 대시보드"
+    },
+    {
+      "type": "card",
+      "title": "활성 프로젝트",
+      "content": "실시간 협업 중인 프로젝트들"
+    },
+    {
+      "type": "card",
+      "title": "팀 멤버",
+      "content": "온라인 상태의 동료들"
+    },
+    {
+      "type": "button",
+      "text": "새 프로젝트",
+      "backgroundColor": "#6366F1"
+    }
+  ],
+  "theme": {
+    "primaryColor": "#6366F1",
+    "layout": "sidebar",
+    "darkMode": true
+  }
+}

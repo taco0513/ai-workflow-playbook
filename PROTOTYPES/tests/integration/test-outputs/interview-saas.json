@@ -1,0 +1,19 @@
+{
+  "projectType": "saas",
+  "userProfile": "developer",
+  "requirements": {
+    "service": "팀 협업 도구",
+    "mainFeatures": [
+      "실시간 동기화",
+      "동시 편집",
+      "사용자 관리"
+    ],
+    "techStack": "React + Node.js + WebSocket",
+    "painPoints": [
+      "동시 편집 충돌",
+      "실시간 성능",
+      "확장성"
+    ],
+    "successMetrics": "동시 접속 100명"
+  }
+}

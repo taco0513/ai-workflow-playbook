@@ -6,6 +6,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is the AI Workflow Playbook repository containing comprehensive guides for different AI-assisted development methodologies:
 
+**🎯 Quick Start**: Use `cd PROTOTYPES && docker-compose -f infrastructure/docker/docker-compose.yml up -d` for immediate 30-second setup!
+
+**📂 New Organized Structure**: 
+- `PROTOTYPES/` - Main applications and working code
+- `documentation/` - User guides, FAQ, troubleshooting  
+- `management/` - Progress tracking, roadmap, versions
+- `setup/` - Installation scripts and configuration
+
 1. **SuperClaude** - An intelligent development framework integrating Claude Code's advanced features
 2. **Context7** - A vibe coding approach leveraging MCP servers for official library documentation
 3. **BMAD Method** - A systematic Business-Model-API-Design workflow for structured app development

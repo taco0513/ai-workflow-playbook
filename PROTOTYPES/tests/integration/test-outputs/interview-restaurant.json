@@ -1,0 +1,20 @@
+{
+  "projectType": "restaurant",
+  "userProfile": "business",
+  "requirements": {
+    "service": "QR 주문 시스템",
+    "mainFeatures": [
+      "QR 메뉴",
+      "실시간 주문",
+      "결제",
+      "주방 알림"
+    ],
+    "currentSolution": "종이 메뉴 + 수기 주문",
+    "painPoints": [
+      "주문 실수",
+      "대기 시간",
+      "테이블 회전율"
+    ],
+    "successMetrics": "테이블 회전율 20% 향상"
+  }
+}
