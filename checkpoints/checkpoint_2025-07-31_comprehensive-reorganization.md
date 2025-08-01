@@ -5,6 +5,8 @@
 **Status**: Complete ✅  
 **Impact**: High (Project-wide transformation)
 
+> **Historical Note**: This checkpoint represents the state before v4.0.0 restructuring (2025-02-01). The PROTOTYPES directory mentioned here has since been removed in favor of a pure knowledge base approach centered on MASTER_PLAYBOOK.
+
 ---
 
 ## 🎯 **Checkpoint Summary**

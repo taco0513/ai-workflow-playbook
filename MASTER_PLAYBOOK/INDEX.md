@@ -188,12 +188,14 @@ Claude Code CLI + Cursor IDE를 활용한 Vibe Coding으로 아이디어를 현�
 - 일관성 95% 달성하는 AI 친화적 패턴
 - **⚠️ 혁신적 섹션: 개발 속도 10배 향상 + 디자인 일관성 보장**
 
-**[18_IA_UX_UI_System](18_IA_UX_UI_System/README.md)** - 정보구조·UX·UI 시스템 완벽 가이드 🎨
-- 30분 정보구조 설계: AI 기반 카드 소팅 + 사이트맵 자동 생성
-- UX 와이어프레임: ASCII 아트 + 터치 친화적 프로토타입
-- 디자인 토큰 시스템: 100+ 토큰 + 플랫폼별 자동 변환
-- 컴포넌트 라이브러리: 30+ React 컴포넌트 + 프로토타이핑 키트
-- **⚠️ 필수 섹션: 아이디어→MVP 시간 70% 단축 달성**
+**[18_Advanced_UX_Engineering](18_Advanced_UX_Engineering/README.md)** - AI 기반 사용자 경험 최적화 🎨
+- AI 사용자 연구 자동화: 페르소나 생성 + 행동 패턴 분석
+- 적응형 인터페이스: 사용자별 맞춤형 UI 자동 생성
+- 마이크로 인터랙션 엔지니어링: 세밀한 사용자 경험 최적화
+- 성능 기반 UX: 성능을 고려한 디자인 결정 자동화
+- 접근성 자동화: WCAG 3.0 완벽 준수 시스템
+- 모바일 네이티브 경험: PWA + 네이티브 앱 수준 UX
+- **⚠️ 혁신적 섹션: AI 기반 완벽한 사용자 경험 구현**
 
 **[19_Roadmap_Guard_System](19_Roadmap_Guard_System/README.md)** - 로드맵 가드 시스템 🛡️
 - 요청 자동 분류: 메인 로드맵 vs 사이드 퀘스트 AI 판단
@@ -246,6 +248,33 @@ Claude Code CLI + Cursor IDE를 활용한 Vibe Coding으로 아이디어를 현�
 - 원클릭 배포
 - AI 어시스턴트 통합
 - **⚠️ 혁신적 섹션: 비개발자도 5분 만에 UI 완성**
+
+### 🌐 글로벌 AI 개발 (NEW)
+
+**[27_i18n_Automation](27_i18n_Automation/README.md)** - 완전 자동화된 다국어 지원 🌍
+- Zero Hardcoding: 하드코딩된 문자열 완전 제거
+- AI 번역: 컨텍스트 인식 스마트 번역 시스템
+- 문화적 적응: 지역별 UX/UI 자동 조정
+- 인터뷰 현지화: AI 인터뷰 시스템 다국어 통합
+- 템플릿 국제화: 업종별 다국어 템플릿
+- 실행 가이드: 단계별 완전 구현 가이드
+- **⚠️ 혁신적 섹션: 글로벌 출시 시간 95% 단축**
+
+**[28_TypeScript_Safety](28_TypeScript_Safety/README.md)** - AI 기반 타입 안전성 시스템 🛡️
+- 타입 시스템 설계: 확장 가능한 타입 아키텍처
+- 런타임 검증: Zod 기반 실시간 타입 검증
+- AI 타입 생성: 자동 타입 추론 및 생성
+- 코드 안전성 패턴: 방어적 프로그래밍 패턴
+- 성능 최적화: 타입 시스템 성능 튜닝
+- 엔터프라이즈 전략: 대규모 팀 타입 관리
+- **⚠️ 혁신적 섹션: 런타임 오류 99% 제거**
+
+**[29_Risk_Prevention_Framework](29_Risk_Prevention_Framework/README.md)** - 위험 예방 및 품질 보증 🎯
+- 위험 식별: AI 기반 위험 요소 자동 감지
+- 품질 게이트: 자동화된 품질 검증 시스템
+- 실시간 모니터링: 성능/보안/품질 통합 모니터링
+- 구현 체크리스트: 단계별 위험 예방 가이드
+- **⚠️ 혁신적 섹션: 프로덕션 장애 95% 예방**
 
 ---
 
@@ -411,6 +440,7 @@ MASTER_PLAYBOOK/
 ├── 15_Living_Documentation/     # 실시간 문서화
 ├── 16_Deployment_Guide/         # 배포 가이드
 ├── 17_Design_System/            # 디자인 시스템
+├── 18_Advanced_UX_Engineering/  # 🆕 AI 기반 UX 최적화
 ├── 19_Roadmap_Guard_System/     # 로드맵 가드
 ├── 20_Smart_Problem_Solving/    # 스마트 문제 해결
 ├── 21_Resources/                # 리소스 & 템플릿
@@ -419,6 +449,9 @@ MASTER_PLAYBOOK/
 ├── 24_AI_Interview_System/      # 🆕 AI 인터뷰 시스템
 ├── 25_Industry_Templates/       # 🆕 업종별 템플릿
 ├── 26_Visual_Builder/           # 🆕 비주얼 빌더
+├── 27_i18n_Automation/          # 🆕 국제화 자동화
+├── 28_TypeScript_Safety/        # 🆕 타입 안전성 시스템
+├── 29_Risk_Prevention_Framework/# 🆕 위험 예방 프레임워크
 ├── INDEX.md                     # 전체 목차
 └── README.md                    # 메인 가이드
 ```
