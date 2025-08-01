@@ -1,0 +1,83 @@
+# Claude Context Configuration
+# 프로젝트별 토큰 효율화 설정
+
+project:
+  name: "AI_Workflow_Playbook"
+  type: "documentation-system"
+  complexity: "high"
+  primary_language: "markdown"
+  
+# 자주 발생하는 이슈들
+common_issues:
+  - module-organization
+  - token-efficiency
+  - real-world-examples
+  
+# 항상 로드할 최소 컨텍스트
+preload:
+  always:
+    - MASTER_PLAYBOOK/MASTER_INDEX.md
+    - MASTER_PLAYBOOK/CRISIS_INDEX.md
+    
+  conditional:
+    - condition: "error"
+      load: "MASTER_PLAYBOOK/31_Crisis/quick/*"
+    - condition: "new module"
+      load: "MASTER_PLAYBOOK/templates/*"
+    - condition: "optimization"
+      load: "management/token-*.md"
+      
+# 토큰 제한 설정
+token_limits:
+  warning: 5000
+  max: 10000
+  auto_compress: 7500
+  
+# 압축 설정
+compression:
+  level: "aggressive"  # aggressive | moderate | light
+  preserve:
+    - code_blocks
+    - commands
+    - file_paths
+  remove:
+    - long_descriptions
+    - redundant_examples
+    
+# 모듈별 우선순위
+module_priority:
+  high:
+    - 30_Real_World_Traps
+    - 31_Crisis_Management
+    - 22_Context_Engineering
+    - 24_AI_Interview_System
+  medium:
+    - 25_Industry_Templates
+    - 09_Testing_QA
+    - 06_SuperClaude_Framework
+  low:
+    - 08_Real_Examples
+    - 11_Quick_Wins
+    
+# 자동 최적화 규칙
+optimization_rules:
+  - rule: "prefer_quick_references"
+    description: "항상 QUICK.md 파일 우선 로드"
+    
+  - rule: "crisis_first"
+    description: "위기 상황 감지시 Crisis 모듈 우선"
+    
+  - rule: "progressive_loading"
+    description: "필요시에만 detailed 문서 로드"
+    
+# 캐싱 전략
+cache:
+  enabled: true
+  ttl: 3600  # 1 hour
+  max_size: "50MB"
+  
+  frequently_used:
+    - MASTER_INDEX.md
+    - CRISIS_INDEX.md
+    - 30_Real_World_Traps/quick/*
+    - 31_Crisis_Management/templates/*

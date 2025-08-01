@@ -42,6 +42,11 @@ Claude Code CLI + Cursor IDE를 활용한 Vibe Coding으로 아이디어를 현�
   - [🚀 설치 가이드](00_Getting_Started/00_Installation_Guide.md) - 30분만에 시작하는 완벽한 가이드
 - [01_Setup](01_Setup/README.md) - 완벽한 개발 환경 구축
 
+### 🎯 핵심 통합 시스템
+- [01_AI_Communication_Mastery](01_AI_Communication_Mastery/README.md) - AI와의 완벽한 소통 (98% 정확도)
+- [02_Development_Methodology](02_Development_Methodology/README.md) - 90% 시간 단축 개발 방법론
+- [03_AI_Automation_Suite](03_AI_Automation_Suite/README.md) - 완전 자동화 개발 시스템 (10배 생산성)
+
 ### 🤖 AI 전문가 팀 (3-5일)
 - [02_AI_Experts](02_AI_Experts/README.md) - 36명의 AI 전문가 활용법
 
@@ -60,12 +65,10 @@ Claude Code CLI + Cursor IDE를 활용한 Vibe Coding으로 아이디어를 현�
 
 ### 🌟 실전 적용과 확장 (지속적)
 - [08_Real_Examples](08_Real_Examples/README.md) - 실제 프로젝트 완전 구현
-- [09_Testing_QA](09_Testing_QA/README.md) - 완벽한 품질 보장
+- [09_Testing_QA](09_Testing_QA/README.md) - 완벽한 품질 보장 (Mock 아키텍처 + 비동기 테스트)
 - [10_Deployment_Scaling](10_Deployment_Scaling/README.md) - 안정적 배포와 확장
-- [11_Quick_Wins](11_Quick_Wins/README.md) - 즉시 적용 가능한 빠른 성과
 
 ### 🚀 AI 파워 업그레이드 (혁신적)
-- [12_Smart_Assistant](12_Smart_Assistant/README.md) - 상황별 자동 추천 시스템
 - [13_Advanced_Claude_Features](13_Advanced_Claude_Features/README.md) - Claude Code 고급 기능 마스터 (🔄 스마트 Git Worktrees 포함)
 - [14_Project_Kickstart](14_Project_Kickstart/README.md) - 프로토타입부터 프로덕션까지
 
@@ -75,8 +78,14 @@ Claude Code CLI + Cursor IDE를 활용한 Vibe Coding으로 아이디어를 현�
 ### 🎨 디자인 시스템 (혁신적)
 - [17_Design_System](17_Design_System/README.md) - AI 기반 디자인 시스템 완전 마스터
 
-### 🧠 스마트 문제 해결 (혁신적)
-- [20_Smart_Problem_Solving](20_Smart_Problem_Solving/README.md) - 2분 룰 기반 자동 웹 검색 시스템
+### 🧠 최첨단 AI 시스템 (혁신적)
+- [22_Context_Engineering](22_Context_Engineering/README.md) - 과학적 AI 컨텍스트 관리 시스템
+- [24_AI_Interview_System](24_AI_Interview_System/README.md) - 30분 자동 앱 설계 인터뷰 시스템  
+- [25_Industry_Templates](25_Industry_Templates/README.md) - 검증된 업종별 템플릿 (30분 배포)
+
+### 📊 실전 검증 시스템 (최신 강화)
+- [34_Data_Migration_Mastery](34_Data_Migration_Mastery/README.md) - 무손실 데이터 마이그레이션 (15,000개 레코드 검증)
+- [35_NextJS_Production_Reality](35_NextJS_Production_Reality/README.md) - 프로덕션 현실 해결책 (1,813개 에러 패턴)
 
 ### 📋 현실적 참고 (선택적)
 - [16_Reality_Check](16_Reality_Check/README.md) - 현실적 참고 가이드 (프로토타입 완성 후 참조)
@@ -89,39 +98,44 @@ Claude Code CLI + Cursor IDE를 활용한 Vibe Coding으로 아이디어를 현�
 ```
 권장 학습 순서:
 1. 00_Getting_Started → 01_Setup (2일)
-2. 14_Project_Kickstart Level 1 → 첫 30분 프로토타입 (1일)
-3. 03_Vibe_Coding → 02_AI_Experts (5일)
-4. 04_BMAD_Method → 05_17Day_Journey (10일)
-5. 14_Project_Kickstart Level 2-3 → 베타→프로덕션 (1주)
+2. 01_AI_Communication_Mastery → 기본 AI 소통법 (3일)
+3. 14_Project_Kickstart Level 1 → 첫 30분 프로토타입 (1일)
+4. 02_Development_Methodology → 체계적 개발 방법론 (7일)
+5. 24_AI_Interview_System → 30분 자동 앱 설계 (2일)
+6. 25_Industry_Templates → 검증된 템플릿 활용 (3일)
+7. 14_Project_Kickstart Level 2-3 → 베타→프로덕션 (1주)
 
 예상 완주 기간: 3-4주
-핵심 목표: 실제 사용자가 테스트할 수 있는 베타 서비스 완성
+핵심 목표: AI와 완벽 협업하여 실제 사용자가 테스트할 수 있는 베타 서비스 완성
 ```
 
 ### 💻 코딩 경험자 (전통적 개발 경험 있음)
 ```
 권장 학습 순서:
-1. 00_Getting_Started → 14_Project_Kickstart (전체 레벨 체험)
-2. 01_Setup → 13_Advanced_Claude_Features (고급 기능 우선)
-3. 03_Vibe_Coding → 12_Smart_Assistant (AI 워크플로우 마스터)
-4. 06_SuperClaude_Framework → 07_Advanced_Patterns (전문가 활용)
-5. 09_Testing_QA → 10_Deployment_Scaling → 08_Real_Examples
+1. 01_AI_Communication_Mastery → AI 협업 마스터 (2일)
+2. 03_AI_Automation_Suite → 자동화 시스템 구축 (3일)
+3. 22_Context_Engineering → 과학적 AI 활용 (2일)
+4. 06_SuperClaude_Framework → 고급 프레임워크 (3일)
+5. 34_Data_Migration_Mastery + 35_NextJS_Production_Reality → 실전 패턴 (3일)
+6. 09_Testing_QA → 10_Deployment_Scaling → 품질 시스템 (4일)
 
 예상 완주 기간: 2-3주
-핵심 목표: 프로토타입→베타→프로덕션 전체 프로세스 마스터
+핵심 목표: AI 통합 개발로 10배 생산성 달성 및 프로덕션 시스템 마스터
 ```
 
 ### 🚀 스타트업 창업자/기획자
 ```
 권장 학습 순서:
-1. 00_Getting_Started → 14_Project_Kickstart Level 1-2 (프로토타입→베타)
-2. 04_BMAD_Method → 05_17Day_Journey (체계적 MVP 개발)
-3. 12_Smart_Assistant → 11_Quick_Wins (자동화 + 빠른 성과)
-4. 02_AI_Experts → 03_Vibe_Coding (AI 팀 활용법)
-5. 14_Project_Kickstart Level 3 → 10_Deployment_Scaling (프로덕션)
+1. 24_AI_Interview_System → 30분 자동 앱 설계 (1일)
+2. 25_Industry_Templates → 검증된 비즈니스 템플릿 (2일)
+3. 01_AI_Communication_Mastery → AI와 효과적 소통 (2일)
+4. 02_Development_Methodology → 90% 시간 단축 방법론 (5일)
+5. 14_Project_Kickstart → 프로토타입→베타→프로덕션 (1주)
+6. 03_AI_Automation_Suite → 완전 자동화 시스템 (3일)
+7. 10_Deployment_Scaling → 확장 가능한 런칭 (2일)
 
 예상 완주 기간: 3-4주
-핵심 목표: 베타 테스터 확보 → 피드백 기반 개선 → 상용 서비스 런칭
+핵심 목표: AI 협업으로 베타 테스터 확보 → 73% 성공률로 상용 서비스 런칭
 ```
 
 ---

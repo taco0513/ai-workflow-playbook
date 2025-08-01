@@ -48,6 +48,30 @@
 - 배포 전략
 - 모니터링 연계
 
+## 🚀 고급 테스팅 패턴 (NEW)
+
+### 7. [Mock Architecture Mastery](patterns/mock-architecture-mastery.md)
+- 전략적 Mock 분류 시스템
+- Smart Mock Factory Pattern
+- API Mock Server Architecture (MSW 기반)
+- Event-Driven Mock System
+- Database Mock with Transaction Support
+- Mock 성능 최적화 및 베스트 프랙티스
+
+### 8. [Async Testing Mastery](patterns/async-testing-mastery.md)
+- Promise/Callback/Event 기반 테스트 패턴
+- Timer 기반 테스트 전략
+- 실전 비동기 테스트 시나리오 (API, DB, Stream)
+- 플래키 테스트 방지 전략
+- 비동기 테스트 유틸리티 및 헬퍼
+
+### 9. [Testing Automation Suite](tools/testing-automation-suite.ts)
+- 완전 자동화된 테스트 관리 시스템
+- 스마트 테스트 생성 (Unit/Integration/E2E)
+- 테스트 실행, 분석, 리포팅 자동화
+- 플래키 테스트 추적 및 품질 지표 관리
+- HTML/JSON 리포트 생성
+
 ## 🎯 테스트 수준별 가이드
 
 ### Level 1: 기본 테스팅 (1-2주)
